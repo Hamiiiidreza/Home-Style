@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Inter Regular';
+  src:
+    local('Inter Regular'),
+    local('Inter-Regular'),
+    url('/src/fonts/Inter_18pt-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter Medium';
+  src:
+    local('Inter Medium'),
+    local('Inter-Medium'),
+    url('/src/fonts/Inter_18pt-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter SemiBold';
+  src:
+    local('Inter SemiBold'),
+    local('Inter-SemiBold'),
+    url('/src/fonts/Inter_18pt-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter Bold';
+  src:
+    local('Inter Bold'),
+    local('Inter-Bold'),
+    url('/src/fonts/Inter-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins Medium';
+  src:
+    local('Poppins Medium'),
+    local('Poppins-Medium'),
+    url('/src/fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+
+  --color-primary-color: #000000;
+  --color-secondary-color-blue: #377DFF;
+  --color-secondary-color-green: #38CB89;
+  --color-secondary-color-orange: #FFAB00;
+  --color-secondary-color-red: #FF5630;
+  --color-neutral-01: #FEFEFE;
+  --color-neutral-02: #F3F5F7;
+  --color-neutral-03: #E8ECEF;
+  --color-neutral-04: #6C7275;
+  --color-neutral-05: #343839;
+  --color-neutral-06: #232627;
+  --color-neutral-07: #141718;
+
+  --font-InterRegular: "Inter Regular";
+  --font-InterMedium: "Inter Medium";
+  --font-InterSemiBold: "Inter SemiBold";
+  --font-InterBold: "Inter Bold";
+  --font-PoppinsMedium: "Poppins Medium";
+
+  --tracking-hero: -0.02em;
+  --tracking-headline-1: -0.0375em;
+  --tracking-headline-2: -0.02778em;
+  --tracking-headline-3: -0.01852em;
+  --tracking-headline-4: -0.01em;
+  --tracking-headline-5: -0.01765em;
+  --tracking-headline-6: -0.02143em;
+  --tracking-button-m: -0.02222em;
+  --tracking-button-s: -0.025em; 
+
+  --breakPoint-xs: 480px;
+}
+
+@utility container {
+  @apply mx-auto px-8 lg:px-40
+}
