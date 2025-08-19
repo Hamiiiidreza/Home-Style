@@ -1,9 +1,12 @@
 import React from 'react'
+import Topbar from '../../components/modules/topbar/topbar';
+import Navbar from '../../components/modules/navbar/navbar';
 
 function Shop() {
   return (
-    <div className='container'>
-      <h1 className='text-8xl text-center text-neutral-700'>salam</h1>
+    <div>
+      <Topbar />
+      <Navbar />
     </div>
   )
 }
