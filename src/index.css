@@ -1,6 +1,6 @@
 body {
-  min-width: 320px;
-  min-height: 100vh;
+  margin: 0 auto;
   background-color: white;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
