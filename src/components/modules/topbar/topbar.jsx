@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
 import { IoCloseOutline } from "react-icons/io5";
-import { GoArrowRight } from "react-icons/go";
+import ButtonCard from '../../ui/button-card';
 
 function Topbar() {
 
@@ -20,24 +19,13 @@ function Topbar() {
                 30% off storewide — Limited time!
               </p>
             </div>
-            <button
-              className="inline-flex items-center gap-0.5 hover:drop-shadow-custom transition-all border-b border-secondary-color-blue"
-              aria-label="Shop now for 30% off"
-            >
-              <div className="inline-flex items-center text-secondary-color-blue gap-1">
-                <Link
-                  to="/Shop"
-                  className="font-button-XS text-blue">
-                  Shop Now
-                </Link>
-                <GoArrowRight
-                  className="relative size-4.5"
-                />
-              </div>
-            </button>
+            <ButtonCard
+              title="Shop Now"
+              textColor="text-secondary-color-blue"
+              borderColor="border-secondary-color-blue"
+            />
           </div>
           <button
-
             aria-label="Close banner"
             onClick={() => setShowBanner(false)}
           >
