@@ -1,23 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import { GoArrowRight } from "react-icons/go";
+import React from "react";
 
-function ButtonCard({ title, textColor, borderColor }) {
+function ButtonCard({ title ,onClick, disabled = false, className = '' }) {
     return (
         <button
-            className={`inline-flex items-center gap-0.5 hover:drop-shadow-custom transition-all border-b ${borderColor}`}
-            aria-label="Shop now for 30% off"
+            onClick={onClick}
+            disabled={disabled}
+            className={`add-to-cart-btn ${className}`}
         >
-            <div className={`inline-flex items-center ${textColor} gap-1`}>
-                <Link
-                    to="/Shop"
-                    className="font-InterMedium text-base">
-                    {title}
-                </Link>
-                <GoArrowRight
-                    className="relative size-4.5 cursor-pointer"
-                />
-            </div>
+            {title}
         </button>
     )
 }
