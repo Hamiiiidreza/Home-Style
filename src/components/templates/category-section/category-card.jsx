@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonCard from '../../ui/button-card';
+import ShopLink from "../../ui/shop-link";
 
 const CategoryCard = ({ image, title, heightClass, isTop, imageClass, hasInnerLeftBorder }) => (
     <div className={`group relative ${heightClass} bg-neutral-02 overflow-hidden transition-all
@@ -23,7 +23,7 @@ const CategoryCard = ({ image, title, heightClass, isTop, imageClass, hasInnerLe
                 <h3 className="font-PoppinsMedium text-neutral-07 text-headline-5 mb-3 hover:drop-shadow-custom transition-all">
                     {title}
                 </h3>
-                <ButtonCard
+                <ShopLink
                     title="Shop Now"
                     textColor="text-neutral-07"
                     borderColor="border-neutral-07"
@@ -34,7 +34,7 @@ const CategoryCard = ({ image, title, heightClass, isTop, imageClass, hasInnerLe
                 <h3 className="font-PoppinsMedium text-neutral-07 text-headline-5 mb-3 hover:drop-shadow-custom transition-all">
                     {title}
                 </h3>
-                <ButtonCard
+                <ShopLink
                     title="Shop Now"
                     textColor="text-neutral-07"
                     borderColor="border-neutral-07"

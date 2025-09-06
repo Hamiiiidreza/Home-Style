@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { IoCloseOutline } from "react-icons/io5";
-import ButtonCard from '../../ui/button-card';
+import ShopLink from '../../ui/shop-link';
 
 function Topbar() {
 
@@ -19,7 +19,7 @@ function Topbar() {
                 30% off storewide — Limited time!
               </p>
             </div>
-            <ButtonCard
+            <ShopLink
               title="Shop Now"
               textColor="text-secondary-color-blue"
               borderColor="border-secondary-color-blue"
