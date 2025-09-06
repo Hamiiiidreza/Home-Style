@@ -77,6 +77,7 @@
   --font-PoppinsMedium: "Poppins Medium";
 
   --text-headline-5: 34px;
+  --text-4.5xl: 40px;
 
   --tracking-hero: -0.02em;
   --tracking-headline-1: -0.0375em;
@@ -85,6 +86,7 @@
   --tracking-headline-4: -0.01em;
   --tracking-headline-5: -0.01765em;
   --tracking-headline-6: -0.02143em;
+  --tracking-headline-7: -0.01em;
   --tracking-button-m: -0.02222em;
   --tracking-button-s: -0.025em; 
 

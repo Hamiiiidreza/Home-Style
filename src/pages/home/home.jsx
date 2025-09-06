@@ -4,6 +4,8 @@ import Navbar from '../../components/modules/navbar/navbar';
 import Header from '../../components/templates/header/header';
 import Hero from '../../components/templates/hero/hero';
 import CategorySection from '../../components/templates/category-section/category-section';
+import ProductSection from '../../components/modules/product-section/product-section';
+import ServicesSection from '../../components/modules/services-section/services-section';
 
 
 function Home() {
@@ -14,6 +16,8 @@ function Home() {
       <Header />
       <Hero />
       <CategorySection />
+      <ProductSection />
+      <ServicesSection />
     </div>
   )
 }
