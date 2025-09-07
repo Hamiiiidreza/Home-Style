@@ -6,6 +6,9 @@ import Hero from '../../components/templates/hero/hero';
 import CategorySection from '../../components/templates/category-section/category-section';
 import ProductSection from '../../components/modules/product-section/product-section';
 import ServicesSection from '../../components/modules/services-section/services-section';
+import SaleBanner from '../../components/modules/sale-banner/sale-banner';
+import BlogSection from '../../components/modules/blog-section/blog-section';
+import Newsletter from '../../components/modules/news-letter/news-letter';
 
 
 function Home() {
@@ -18,6 +21,9 @@ function Home() {
       <CategorySection />
       <ProductSection />
       <ServicesSection />
+      <SaleBanner />
+      <BlogSection />
+      <Newsletter />
     </div>
   )
 }
