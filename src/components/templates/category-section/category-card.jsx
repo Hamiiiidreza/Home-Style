@@ -1,5 +1,5 @@
 import React from "react";
-import ShopLink from "../../ui/shop-link";
+import ArrowLink from "../../ui/arrow-link";
 
 const CategoryCard = ({ image, title, heightClass, isTop, imageClass, hasInnerLeftBorder }) => (
     <div className={`group relative ${heightClass} bg-neutral-02 overflow-hidden transition-all
@@ -23,10 +23,11 @@ const CategoryCard = ({ image, title, heightClass, isTop, imageClass, hasInnerLe
                 <h3 className="font-PoppinsMedium text-neutral-07 text-headline-5 mb-3 hover:drop-shadow-custom transition-all">
                     {title}
                 </h3>
-                <ShopLink
+                <ArrowLink
                     title="Shop Now"
                     textColor="text-neutral-07"
                     borderColor="border-neutral-07"
+                    to="/Shop"
                 />
             </div>
         ) : (
@@ -34,10 +35,11 @@ const CategoryCard = ({ image, title, heightClass, isTop, imageClass, hasInnerLe
                 <h3 className="font-PoppinsMedium text-neutral-07 text-headline-5 mb-3 hover:drop-shadow-custom transition-all">
                     {title}
                 </h3>
-                <ShopLink
+                <ArrowLink
                     title="Shop Now"
                     textColor="text-neutral-07"
                     borderColor="border-neutral-07"
+                    to="/Shop"
                 />
             </div>
         )}

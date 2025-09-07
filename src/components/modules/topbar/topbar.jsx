@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { IoCloseOutline } from "react-icons/io5";
-import ShopLink from '../../ui/shop-link';
+import ArrowLink from '../../ui/arrow-link';
 
 function Topbar() {
 
@@ -19,10 +19,11 @@ function Topbar() {
                 30% off storewide — Limited time!
               </p>
             </div>
-            <ShopLink
+            <ArrowLink
               title="Shop Now"
               textColor="text-secondary-color-blue"
               borderColor="border-secondary-color-blue"
+              to="/Shop"
             />
           </div>
           <button
