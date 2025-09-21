@@ -54,12 +54,12 @@ function Navbar() {
                 alt='search-icon'
                 className="size-6 hover:drop-shadow-custom transition-all" />
             </button>
-            <button>
+            <Link to="/my-account">
               <img
                 src='/Images/User.svg'
                 alt='user-icon'
                 className="size-6 hover:drop-shadow-custom transition-all" />
-            </button>
+            </Link>
             <div className='flex items-center justify-center gap-2'>
               <Link
                 to="/Shop"
