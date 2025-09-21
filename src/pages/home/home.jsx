@@ -9,6 +9,7 @@ import ServicesSection from '../../components/modules/services-section/services-
 import SaleBanner from '../../components/modules/sale-banner/sale-banner';
 import BlogSection from '../../components/modules/blog-section/blog-section';
 import Newsletter from '../../components/modules/news-letter/news-letter';
+import Footer from '../../components/modules/footer/footer';
 
 
 function Home() {
@@ -24,6 +25,7 @@ function Home() {
       <SaleBanner />
       <BlogSection />
       <Newsletter />
+      <Footer />
     </div>
   )
 }
