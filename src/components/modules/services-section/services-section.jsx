@@ -9,13 +9,11 @@ const ServicesSection = () => (
                     icon="/Images/service-1.svg"
                     title="Free Shipping"
                     description="Order above $200"
-                    decorations={['dash1', 'dash2']}
                 />
                 <ServiceCard
                     icon="/Images/service-2.svg"
                     title="Money-back"
                     description="30 days guarantee"
-                    decorations={['circleLeft', 'circleCenter', 'circleRight']}
                 />
                 <ServiceCard
                     icon="/Images/service-3.svg"
@@ -23,7 +21,7 @@ const ServicesSection = () => (
                     description="Secured by Stripe"
                 />
                 <ServiceCard
-                    icon="https://c.animaapp.com/mee1xtwy4cDJQY/img/communication-outline-call.svg"
+                    icon="/Images/service-4.svg"
                     title="24/7 Support"
                     description="Phone and Email support"
                 />
