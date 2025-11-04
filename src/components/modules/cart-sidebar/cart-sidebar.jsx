@@ -15,7 +15,7 @@ const cartItems = [
         color: "Red",
         price: 19.19,
         quantity: 2,
-        image: "https://c.animaapp.com/mfup5f72NyeeO0/img/paste-image.svg",
+        image: "/Images/product-5-2.svg",
     },
     {
         id: 3,
