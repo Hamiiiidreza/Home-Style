@@ -17,10 +17,22 @@ function Home() {
     <div>
       <Topbar />
       <Navbar />
-      <Header />
+      <Header
+        images={[
+          "/Images/img-placeholder-1.png",
+          "/Images/img-placeholder-2.png",
+          "/Images/img-placeholder-3.png"
+        ]}
+        isSlidable={true}
+        withGradient={true}
+      />
       <Hero />
       <CategorySection />
-      <ProductSection />
+      <ProductSection
+        showHeader={true}
+        productCount={4}
+        showBorder={true}
+      />
       <ServicesSection />
       <SaleBanner />
       <BlogSection />
