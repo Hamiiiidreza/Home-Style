@@ -3,7 +3,7 @@ import Topbar from '../../components/modules/topbar/topbar';
 import Navbar from '../../components/modules/navbar/navbar';
 import Newsletter from '../../components/modules/news-letter/news-letter';
 import Footer from '../../components/modules/footer/footer';
-import Breadcrumb from '../../components/modules/breadcrumb/breadcrumb';
+import PageHierarchy from '../../components/modules/Page-Hierarchy/page-hierarchy';
 import ProductDetails from '../../components/templates/product-details/product-details';
 
 function Product() {
@@ -11,7 +11,7 @@ function Product() {
     <div>
       <Topbar />
       <Navbar />
-      <Breadcrumb />
+      <PageHierarchy />
       <ProductDetails />
       <Newsletter />
       <Footer />
