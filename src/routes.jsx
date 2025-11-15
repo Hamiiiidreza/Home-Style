@@ -3,6 +3,7 @@ import Shop from "./pages/Shop/Shop"
 import Product from "./pages/Product/Product"
 import ContactUs from "./pages/contact-us/contact-us"
 import Myaccount from "./pages/my-account/my-account";
+import ShoppingCart from "./pages/shopping-cart/shopping-cart";
 
 const routes = [
     { path: '/', element: <Home /> },
@@ -10,6 +11,7 @@ const routes = [
     { path: '/Product', element: <Product /> },
     { path: '/contact-us', element: <ContactUs /> },
     { path: '/my-account', element: <Myaccount /> },
+    { path: '/shopping-cart', element: <ShoppingCart /> },
 ]
 
 export default routes;
