@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const cartItems = [
     {
@@ -122,7 +123,11 @@ export default function CartSidebar({ open, onClose }) {
                     <button className="flex items-center justify-center font-InterMedium bg-neutral-07 text-white text-lg leading-[32px] tracking-button-m rounded-md py-[26px] px-[10px] w-[365px] h-[52px] cursor-pointer transition-all hover:drop-shadow-custom">
                         Checkout
                     </button>
-                    <button className="font-InterSemiBold text-sm text-black/900 leading-[22px] w-[67px] mx-auto border-b border-black/900 pb-1 transition-all hover:drop-shadow-custom cursor-pointer">View Cart</button>
+                    <Link
+                        to="/shopping-cart"
+                        className="font-InterSemiBold text-sm text-black/900 leading-[22px] w-[67px] mx-auto border-b border-black/900 pb-1 transition-all hover:drop-shadow-custom cursor-pointer">
+                        View Cart
+                    </Link>
                 </div>
             </aside>
         </div>
