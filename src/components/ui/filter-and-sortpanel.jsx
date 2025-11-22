@@ -162,11 +162,11 @@ function FilterAndSortpanel() {
                         className="box-border inline-flex items-center gap-1 border-0 cursor-pointer"
                         aria-label="Sort products"
                     >
-                        <span className="inline-flex items-center gap-1 font-InterSemiBold text-base text-[#121212] leading-6.5 whitespace-nowrap transition-all hover:drop-shadow-custom">
+                        <span className="inline-flex items-center gap-1 font-InterSemiBold text-base text-black-900 leading-6.5 whitespace-nowrap transition-all hover:drop-shadow-custom">
                             Sort by
                         </span>
                         <img
-                            className="relative text-[#121212] size-5 transition-all hover:drop-shadow-custom"
+                            className="relative text-black-900 size-5 transition-all hover:drop-shadow-custom"
                             alt="chevron-down"
                             src="/Images/chevron-down.svg"
                         />
@@ -181,7 +181,7 @@ function FilterAndSortpanel() {
                             <button
                                 key={btn.id}
                                 onClick={() => setActiveButton(btn.id)}
-                                className={`relative w-[46px] h-10 border-r border-solid border-[#e8ecef] cursor-pointer transition-all ${activeButton === btn.id
+                                className={`relative w-[46px] h-10 border-r border-solid border-neutral-03 cursor-pointer transition-all ${activeButton === btn.id
                                     ? "bg-neutral-03"
                                     : "bg-white hover:bg-neutral-03"
                                     }`}
