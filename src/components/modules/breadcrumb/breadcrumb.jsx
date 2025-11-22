@@ -25,7 +25,7 @@ function Breadcrumb() {
                         </li>
                         <li className="inline-flex items-center gap-1">
                             <span
-                                className="font-InterMedium text-[#121212] text-sm tracking-[0] leading-6 whitespace-nowrap transition-all hover:drop-shadow-custom"
+                                className="font-InterMedium text-black-900 text-sm tracking-[0] leading-6 whitespace-nowrap transition-all hover:drop-shadow-custom"
                                 aria-current="page"
                             >
                                 Shop
@@ -38,7 +38,7 @@ function Breadcrumb() {
                         Shop Page
                     </h1>
                     <p
-                        className="font-InterRegular text-[#121212] text-xl text-center tracking-[0] leading-8 whitespace-nowrap transition-all hover:drop-shadow-custom"
+                        className="font-InterRegular text-black-900 text-xl text-center tracking-[0] leading-8 whitespace-nowrap transition-all hover:drop-shadow-custom"
                     >
                         Let's design the place you always imagined.
                     </p>
