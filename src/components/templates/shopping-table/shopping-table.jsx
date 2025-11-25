@@ -1,8 +1,11 @@
 import React from 'react'
 import Stepper from '../../modules/stepper/stepper';
 import ButtonCard from '../../ui/button-card';
+import { useNavigate } from 'react-router-dom';
 
 function ShoppingTable() {
+
+    const navigate = useNavigate();
 
     const cartItems = [
         {
@@ -32,13 +35,16 @@ function ShoppingTable() {
     ];
 
     const handleCkeckout = () => {
-        console.log("checked out!")
+        navigate('/checkout')
     }
 
     return (
         <div>
             <div class="inline-flex flex-col items-center py-20 relative bg-white container">
-                <Stepper />
+                <Stepper
+                    title="Cart"
+                    currentStep={1}
+                />
                 <div class="inline-flex flex-col items-start">
                     <div class="inline-flex items-start gap-16 px-0 py-20">
                         <div class="inline-flex flex-col items-start">
