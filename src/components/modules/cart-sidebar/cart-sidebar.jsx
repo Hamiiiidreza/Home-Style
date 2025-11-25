@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ButtonCard from "../../ui/button-card";
+import { useNavigate } from 'react-router-dom';
 
 const cartItems = [
     {
@@ -29,8 +31,15 @@ const cartItems = [
 ];
 
 export default function CartSidebar({ open, onClose }) {
+
+    const navigate = useNavigate();
+
     const subtotal = 99.0;
     const total = 234.0;
+
+    const handleCkeckout = () => {
+        navigate('/checkout')
+    }
 
     return (
         <div
@@ -120,9 +129,11 @@ export default function CartSidebar({ open, onClose }) {
 
                 {/* Buttons */}
                 <div className="flex flex-col gap-4 mt-4">
-                    <button className="flex items-center justify-center font-InterMedium bg-neutral-07 text-white text-lg leading-[32px] tracking-button-m rounded-md py-[26px] px-[10px] w-[365px] h-[52px] cursor-pointer transition-all hover:drop-shadow-custom">
-                        Checkout
-                    </button>
+                    <ButtonCard
+                        onClick={handleCkeckout}
+                        title="Checkout"
+                        className="flex items-center justify-center font-InterMedium bg-neutral-07 text-white text-lg leading-[32px] tracking-button-m rounded-md py-[26px] px-[10px] w-[365px] h-[52px] cursor-pointer transition-all hover:drop-shadow-custom"
+                    />
                     <Link
                         to="/shopping-cart"
                         className="font-InterSemiBold text-sm text-black/900 leading-[22px] w-[67px] mx-auto border-b border-black/900 pb-1 transition-all hover:drop-shadow-custom cursor-pointer">
