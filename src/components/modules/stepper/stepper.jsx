@@ -1,73 +1,69 @@
-import React from 'react'
+import React from "react";
 
-function Stepper() {
+function Stepper({ title, currentStep }) {
+    const steps = [
+        { id: 1, name: "Shopping cart" },
+        { id: 2, name: "Checkout details" },
+        { id: 3, name: "Order complete" },
+    ];
+
     return (
-        <div class="inline-flex flex-col items-center gap-10">
-            <div
-                class="font-PoppinsMedium text-black text-[54px] tracking-headline-3 leading-14.5 whitespace-nowrap transition-all hover:drop-shadow-custom"
-            >
-                Cart
+        <div className="inline-flex flex-col items-center gap-10">
+            <div className="font-PoppinsMedium text-black text-[54px] tracking-headline-3 leading-14.5 whitespace-nowrap transition-all hover:drop-shadow-custom">
+                {title}
             </div>
-            <div class="inline-flex gap-8 items-start">
-                <div
-                    class="flex flex-col w-64 gap-6 pt-0 pb-[26px] px-0 border-b-2 border-solid border-neutral-07 items-start"
-                >
-                    <div class="flex gap-[17px] self-stretch w-full items-center">
+
+            <div className="inline-flex gap-8 items-start">
+                {steps.map((step) => {
+                    const isCompleted = currentStep > step.id;
+                    const isCurrent = currentStep === step.id;
+                    const isUpcoming = currentStep < step.id;
+
+                    return (
                         <div
-                            class="flex items-center justify-center px-[17px] py-2 bg-[#23262F] rounded-[40px] overflow-hidden transition-all hover:drop-shadow-custom"
+                            key={step.id}
+                            className={`flex flex-col w-64 gap-6 pt-0 pb-[26px] px-0 items-start transition-all hover:drop-shadow-custom
+                            ${isCompleted ? "border-b-2 border-secondary-color-green" : ""}
+                            ${isCurrent ? "border-b-2 border-[#23262F]" : ""}
+                            `}
                         >
-                            <div
-                                class="font-InterSemiBold text-base text-[#FCFCFD] text-center leading-[26px] tracking-[0] whitespace-nowrap"
-                            >
-                                1
+                            <div className="flex gap-[17px] self-stretch w-full items-center">
+                                <div
+                                    className={`flex items-center justify-center rounded-full overflow-hidden size-10
+                                    ${isCompleted ? "bg-secondary-color-green text-white" : ""}
+                                    ${isCurrent ? "bg-[#23262F] text-[#FCFCFD]" : ""}
+                                    ${isUpcoming ? "bg-[#B1B5C3] text-[#FCFCFD]" : ""}
+                                    `}
+                                >
+                                    {isCompleted ? (
+                                        <img
+                                            src="/Images/tick.svg"
+                                            className="text-white text-lg size-6"
+                                        />
+                                    ) : (
+                                        <span className="font-InterSemiBold text-base leading-[26px]">
+                                            {step.id}
+                                        </span>
+                                    )}
+                                </div>
+
+                                <div
+                                    className={`font-InterSemiBold text-base leading-[26px]
+                                    ${isCompleted ? "text-secondary-color-green" : ""}
+                                    ${isCurrent ? "text-[#23262F]" : ""}
+                                    ${isUpcoming ? "text-[#B1B5C3]" : ""}
+                                    `}
+                                >
+                                    {step.name}
+                                </div>
                             </div>
                         </div>
-                        <div
-                            class="relative flex-1 font-InterSemiBold text-[#23262F] text-base tracking-[0] leading-[26px] transition-all hover:drop-shadow-custom"
-                        >
-                            Shopping cart
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-col w-64 gap-6 pt-0 pb-[26px] px-0 items-start">
-                    <div class="flex gap-[17px] self-stretch w-full items-center">
-                        <div
-                            class="flex items-center justify-center px-[15px] py-2 bg-[#B1B5C3] rounded-[40px] overflow-hidden transition-all hover:drop-shadow-custom"
-                        >
-                            <div
-                                class="font-InterSemiBold text-[#FCFCFD] text-base text-center leading-6 tracking-[0] whitespace-nowrap"
-                            >
-                                2
-                            </div>
-                        </div>
-                        <div
-                            class="relative flex-1 font-InterSemiBold text-[#B1B5C3] text-base tracking-[0] leading-[26px] transition-all hover:drop-shadow-custom"
-                        >
-                            Checkout details
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-col w-64 gap-6 pt-0 pb-[26px] px-0 items-start">
-                    <div class="flex gap-[17px] self-stretch w-full items-center">
-                        <div
-                            class="flex items-center justify-center px-[15px] py-2 bg-[#B1B5C3] rounded-[40px] overflow-hidden transition-all hover:drop-shadow-custom"
-                        >
-                            <div
-                                class="font-InterSemiBold text-[#FCFCFD] text-base text-center leading-6 tracking-[0] whitespace-nowrap"
-                            >
-                                3
-                            </div>
-                        </div>
-                        <div
-                            class="relative flex-1 font-InterSemiBold text-[#B1B5C3] text-base tracking-[0] leading-[26px] transition-all hover:drop-shadow-custom"
-                        >
-                            Order complete
-                        </div>
-                    </div>
-                </div>
+                    );
+                })}
             </div>
         </div>
-    )
+    );
 }
 
 export default Stepper;
+
