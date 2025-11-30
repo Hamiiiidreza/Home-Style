@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Stepper from '../../modules/stepper/stepper';
 import ButtonCard from '../../ui/button-card';
+import { useNavigate } from 'react-router-dom';
 
 const cartItems = [
   {
@@ -32,6 +33,11 @@ const cartItems = [
 function PaymentDetails() {
 
   const [checked, setChecked] = useState(false);
+  const navigate = useNavigate();
+
+  const handleOrder = () => {
+    navigate('/order-complete')
+  }
 
   return (
     <>
@@ -354,6 +360,7 @@ function PaymentDetails() {
             <ButtonCard
               className="all-[unset] box-border flex justify-center items-center gap-2 relative w-full font-InterMedium text-base text-white text-center leading-7 tracking-button-s whitespace-nowrap px-10 py-3 bg-neutral-07 rounded-lg cursor-pointer transition-all hover:drop-shadow-custom"
               title="Place Order"
+              onClick={handleOrder}
             />
           </div>
           <div
