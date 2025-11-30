@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import CartSidebar from '../cart-sidebar/cart-sidebar';
+import Badge from '../../ui/badge';
 
 function Navbar() {
   const [menuItems] = useState([
@@ -69,9 +70,9 @@ function Navbar() {
                   className="absolute top-1 right-2 size-2"
                 />
               </button>
-              <span className="flex items-center justify-center font-InterBold leading-0.83 bg-neutral-07 text-white text-xs rounded-full size-5.5">
-                2
-              </span>
+              <Badge
+                className="flex items-center justify-center font-InterBold leading-0.83 bg-neutral-07 text-white text-xs rounded-full size-5.5"
+                number={2} />
             </div>
           </div>
         </nav>
