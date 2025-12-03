@@ -50,7 +50,7 @@ function Navbar() {
                 className="size-6 hover:drop-shadow-custom transition-all cursor-pointer"
               />
             </button>
-            <Link to="/my-account">
+            <Link to="/register">
               <img
                 src="/Images/User.svg"
                 alt="user-icon"
