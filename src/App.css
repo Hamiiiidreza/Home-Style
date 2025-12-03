@@ -45,6 +45,17 @@
 }
 
 @font-face {
+  font-family: 'Inter Italic';
+  src:
+    local('Inter Italic'),
+    local('Inter-Italic'),
+    url('/src/fonts/Inter_18pt-Italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Poppins Medium';
   src:
     local('Poppins Medium'),
@@ -75,6 +86,7 @@
   --font-InterMedium: "Inter Medium";
   --font-InterSemiBold: "Inter SemiBold";
   --font-InterBold: "Inter Bold";
+  --font-InterItalic: "Inter Italic";
   --font-PoppinsMedium: "Poppins Medium";
 
   --text-headline-5: 34px;
