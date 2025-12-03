@@ -2,8 +2,16 @@ import React from 'react'
 import Stepper from '../../modules/stepper/stepper';
 import Badge from '../../ui/badge';
 import ButtonCard from '../../ui/button-card';
+import { useNavigate } from 'react-router-dom';
 
 function OrderDetails() {
+
+    const navigate = useNavigate();
+
+    const handlePurchase = () => {
+        navigate('/my-account/Index');
+    }
+
     return (
         <>
             <div
@@ -124,6 +132,7 @@ function OrderDetails() {
                     <ButtonCard
                         title='Purchase history'
                         className="inline-flex items-center justify-center gap-2 px-10 py-3 w-fit font-InterMedium text-white text-base text-center tracking-button-s leading-7 whitespace-nowrap bg-neutral-07 rounded-[80px] cursor-pointer transition-all hover:drop-shadow-custom"
+                        onClick={handlePurchase}
                     />
                 </div>
             </div>
