@@ -57,7 +57,7 @@ function Sidebar() {
                         </span>
                     </Link>
                     <Link
-                        to="#"
+                        to="/my-account/orders"
                         className="flex flex-col w-[230px] items-start gap-2.5 px-0 py-2 border-b border-solid border-[transparent]"
                     >
                         <span
