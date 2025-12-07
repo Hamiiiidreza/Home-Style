@@ -11,6 +11,7 @@ import UserPanel from "./pages/UserPanel/Index";
 import Account from "./pages/UserPanel/account/Account";
 import Address from "./pages/UserPanel/address/Address";
 import Orders from "./pages/UserPanel/orders/Orders";
+import Wishlist from "./pages/UserPanel/wishlist/Wishlist";
 
 const routes = [
     { path: '/', element: <Home /> },
@@ -28,6 +29,7 @@ const routes = [
             { path: "account", element: <Account /> },
             { path: "address", element: <Address /> },
             { path: "orders", element: <Orders /> },
+            { path: "wishlist", element: <Wishlist /> },
         ]
     }
 ]
