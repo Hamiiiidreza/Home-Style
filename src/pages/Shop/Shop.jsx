@@ -18,7 +18,11 @@ function Shop() {
         isSlidable={false}
         withGradient={false}
       />ّ
-      <Breadcrumb />
+      <Breadcrumb
+        title="Shop"
+        name="Shop Page"
+        desc="Let's design the place you always imagined."
+      />
       <FilterAndSortpanel />
       <ProductSection
         showHeader={false}
