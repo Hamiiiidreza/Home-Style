@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-function Breadcrumb() {
+function Breadcrumb({ title, name, desc }) {
     return (
         <div>
             <section className="inline-flex items-center justify-center">
@@ -28,19 +28,19 @@ function Breadcrumb() {
                                 className="font-InterMedium text-black-900 text-sm tracking-[0] leading-6 whitespace-nowrap transition-all hover:drop-shadow-custom"
                                 aria-current="page"
                             >
-                                Shop
+                                {title}
                             </span>
                         </li>
                     </ul>
                     <h1
                         className="font-PoppinsMedium text-black text-[54px] tracking-headline-3 leading-[58px] whitespace-nowrap transition-all hover:drop-shadow-custom"
                     >
-                        Shop Page
+                        {name}
                     </h1>
                     <p
                         className="font-InterRegular text-black-900 text-xl text-center tracking-[0] leading-8 whitespace-nowrap transition-all hover:drop-shadow-custom"
                     >
-                        Let's design the place you always imagined.
+                        {desc}
                     </p>
                 </nav>
             </section>
