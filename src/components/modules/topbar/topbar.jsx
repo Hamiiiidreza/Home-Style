@@ -1,10 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { IoCloseOutline } from "react-icons/io5";
 import ArrowLink from '../../ui/arrow-link';
 
-function Topbar() {
+function Topbar({ onClose, forceHide = false }) {
 
   const [showBanner, setShowBanner] = useState(true);
+  // اگر صفحه از بیرون forceHide = true داد، Topbar نمایش داده نشود
+  const [visible, setVisible] = useState(true);
+
+  // هماهنگی با prop بیرونی
+  useEffect(() => {
+    if (forceHide) setVisible(false);
+  }, [forceHide]);
+
+  const handleClose = () => {
+    setVisible(false);
+    if (onClose) onClose();  // اگر از بیرون تابع فرستاده شود آن را هم اجرا کن
+  };
+
+  if (!visible) return null;
 
   return (
     <>
@@ -28,7 +42,7 @@ function Topbar() {
           </div>
           <button
             aria-label="Close banner"
-            onClick={() => setShowBanner(false)}
+            onClick={handleClose}
           >
             <IoCloseOutline
               className="absolute size-5 top-2 right-10 cursor-pointer"
