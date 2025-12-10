@@ -6,6 +6,7 @@ import Register from "./pages/register/Register";
 import ShoppingCart from "./pages/shopping-cart/shopping-cart";
 import Checkout from "./pages/checkout/checkout";
 import OrderComplete from "./pages/order-complete/order-complete";
+import Articles from "./pages/articles/Articles";
 
 import UserPanel from "./pages/UserPanel/Index";
 import Account from "./pages/UserPanel/account/Account";
@@ -22,6 +23,7 @@ const routes = [
     { path: '/shopping-cart', element: <ShoppingCart /> },
     { path: '/checkout', element: <Checkout /> },
     { path: '/order-complete', element: <OrderComplete /> },
+    { path: '/articles', element: <Articles /> },
     {
         path: '/my-account/*',
         element: <UserPanel />,
