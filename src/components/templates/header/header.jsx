@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
 import { PiArrowRight, PiArrowLeft } from "react-icons/pi"
 
-const Header = ({ images = [], singleImage = null, isSlidable = true, withGradient = true }) => {
+const Header = ({
+    images = [],
+    singleImage = null,
+    isSlidable = true,
+    withGradient = true,
+    children
+})=> {
     const [activeIndex, setActiveIndex] = useState(0)
 
     const hasMultipleImages = images.length > 1
@@ -30,8 +36,15 @@ const Header = ({ images = [], singleImage = null, isSlidable = true, withGradie
             <section
                 className="relative w-full h-[536px] overflow-hidden  
                           bg-cover bg-center hover:drop-shadow-custom transition-all"
-                 style={backgroundStyle}
+                style={backgroundStyle}
             >
+
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
+                    <div className="pointer-events-auto">
+                        {children}
+                    </div>
+                </div>
+
                 {/* اگر قابلیت اسلاید فعال بود Dots نمایش داده می‌شوند */}
                 {isSlidable && hasMultipleImages && (
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex w-[78px] gap-2">
