@@ -118,7 +118,7 @@ const ProductSection = ({
                 </div>
 
                 {productCount === 12 && (
-                    <div className="flex justify-center mt-10">
+                    <div className="flex justify-center mt-20">
                         <ButtonCard
                             title="Show More"
                             onClick={() => console.log("Show more clicked")}
