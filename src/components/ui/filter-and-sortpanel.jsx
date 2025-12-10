@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
-function FilterAndSortpanel() {
+function FilterAndSortpanel({ mode = "shop", defaultActiveButton = 2 }) {
 
-    const [activeButton, setActiveButton] = useState(2);
+    const [activeButton, setActiveButton] = useState(defaultActiveButton);
 
     // --- CATEGORIES ---
     const [isCatOpen, setIsCatOpen] = useState(false);
@@ -62,99 +63,128 @@ function FilterAndSortpanel() {
 
     return (
         <div>
-            <div className="flex container items-end justify-between absolute bottom-10 left-1/2 -translate-x-1/2">
-                <div className="w-[548px] items-start gap-6 flex">
+            <div className="flex container items-end justify-between w-full">
 
-                    {/* ---------- CATEGORIES ---------- */}
-                    <div className="flex flex-col w-[262px] items-start gap-2 relative" ref={catDropdownRef}>
-                        <label className="font-InterSemiBold text-neutral-04 text-base leading-[26px] whitespace-nowrap transition-all hover:drop-shadow-custom">
-                            CATEGORIES
-                        </label>
-                        <button
-                            onClick={() => setIsCatOpen(!isCatOpen)}
-                            className="w-full flex items-center justify-between h-12 pl-4 pr-2 py-2 rounded-lg border-2 border-solid border-neutral-04 bg-transparent font-InterSemiBold text-base text-neutral-07 cursor-pointer transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
-                        >
-                            {selectedCategory}
-                            <img
-                                className={`transition-transform duration-300 ${isCatOpen ? "rotate-180" : "rotate-0"}`}
-                                alt="Dropdown arrow"
-                                src="/Images/arrow-down.svg"
-                            />
-                        </button>
+                {/* ----------- MODE: SHOP (Category + Price) ---------- */}
+                {mode === "shop" && (
+                    <div className="w-[548px] items-start gap-6 flex">
 
-                        {isCatOpen && (
-                            <nav
-                                className="absolute bottom-[110%] left-0 flex flex-col w-[312px] items-start gap-2.5 p-2 bg-white rounded-xl overflow-hidden border-[1.5px] border-solid border-[#f3f5f6] shadow-depth-4 z-50"
-                                role="navigation"
-                                aria-label="Category selection menu"
+                        {/* ---------- CATEGORIES ---------- */}
+                        <div className="flex flex-col w-[262px] items-start gap-2 relative" ref={catDropdownRef}>
+                            <label className="font-InterSemiBold text-neutral-04 text-base leading-[26px] whitespace-nowrap transition-all hover:drop-shadow-custom">
+                                CATEGORIES
+                            </label>
+                            <button
+                                onClick={() => setIsCatOpen(!isCatOpen)}
+                                className="w-full flex items-center justify-between h-12 pl-4 pr-2 py-2 rounded-lg border-2 border-solid border-neutral-04 bg-transparent font-InterSemiBold text-base text-neutral-07 cursor-pointer transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                             >
-                                <ul className="w-full" role="list">
-                                    {categories.map((cat) => (
-                                        <li key={cat} className="w-full">
-                                            <button
-                                                onClick={() => {
-                                                    setSelectedCategory(cat);
-                                                    setIsCatOpen(false);
-                                                }}
-                                                className={`flex w-full items-center gap-2 p-2 rounded-lg transition-all ${selectedCategory === cat
-                                                    ? "bg-neutral-02 text-neutral-07 font-InterSemiBold"
-                                                    : "text-neutral-04 hover:bg-neutral-02"
-                                                    }`}
-                                            >
-                                                <span className="whitespace-nowrap">{cat}</span>
-                                            </button>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </nav>
-                        )}
-                    </div>
+                                {selectedCategory}
+                                <img
+                                    className={`transition-transform duration-300 ${isCatOpen ? "rotate-180" : "rotate-0"}`}
+                                    alt="Dropdown arrow"
+                                    src="/Images/arrow-down.svg"
+                                />
+                            </button>
 
-                    {/* ---------- PRICE ---------- */}
-                    <div className="flex flex-col w-[262px] items-start gap-2 relative" ref={priceDropdownRef}>
-                        <label className="font-InterSemiBold text-neutral-04 text-base leading-[26px] whitespace-nowrap transition-all hover:drop-shadow-custom">
-                            PRICE
-                        </label>
-                        <button
-                            onClick={() => setIsPriceOpen(!isPriceOpen)}
-                            className="w-full flex items-center justify-between h-12 pl-4 pr-2 py-2 rounded-lg border-2 border-solid border-neutral-04 bg-transparent font-InterSemiBold text-base text-neutral-07 cursor-pointer transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
-                        >
-                            {selectedPrice}
-                            <img
-                                className={`transition-transform duration-300 ${isPriceOpen ? "rotate-180" : "rotate-0"}`}
-                                alt="Dropdown arrow"
-                                src="/Images/arrow-down.svg"
-                            />
-                        </button>
+                            {isCatOpen && (
+                                <nav
+                                    className="absolute bottom-[110%] left-0 flex flex-col w-[312px] items-start gap-2.5 p-2 bg-white rounded-xl overflow-hidden border-[1.5px] border-solid border-[#f3f5f6] shadow-depth-4 z-50"
+                                    role="navigation"
+                                    aria-label="Category selection menu"
+                                >
+                                    <ul className="w-full" role="list">
+                                        {categories.map((cat) => (
+                                            <li key={cat} className="w-full">
+                                                <button
+                                                    onClick={() => {
+                                                        setSelectedCategory(cat);
+                                                        setIsCatOpen(false);
+                                                    }}
+                                                    className={`flex w-full items-center gap-2 p-2 rounded-lg transition-all ${selectedCategory === cat
+                                                        ? "bg-neutral-02 text-neutral-07 font-InterSemiBold"
+                                                        : "text-neutral-04 hover:bg-neutral-02"
+                                                        }`}
+                                                >
+                                                    <span className="whitespace-nowrap">{cat}</span>
+                                                </button>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </nav>
+                            )}
+                        </div>
 
-                        {isPriceOpen && (
-                            <nav
-                                className="absolute bottom-[110%] left-0 flex flex-col w-[312px] items-start gap-2.5 p-2 bg-white rounded-xl overflow-hidden border-[1.5px] border-solid border-[#f3f5f6] shadow-depth-4 z-50"
-                                role="navigation"
-                                aria-label="Price selection menu"
+                        {/* ---------- PRICE ---------- */}
+                        <div className="flex flex-col w-[262px] items-start gap-2 relative" ref={priceDropdownRef}>
+                            <label className="font-InterSemiBold text-neutral-04 text-base leading-[26px] whitespace-nowrap transition-all hover:drop-shadow-custom">
+                                PRICE
+                            </label>
+                            <button
+                                onClick={() => setIsPriceOpen(!isPriceOpen)}
+                                className="w-full flex items-center justify-between h-12 pl-4 pr-2 py-2 rounded-lg border-2 border-solid border-neutral-04 bg-transparent font-InterSemiBold text-base text-neutral-07 cursor-pointer transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                             >
-                                <ul className="w-full" role="list">
-                                    {prices.map((price) => (
-                                        <li key={price} className="w-full">
-                                            <button
-                                                onClick={() => {
-                                                    setSelectedPrice(price);
-                                                    setIsPriceOpen(false);
-                                                }}
-                                                className={`flex w-full items-center gap-2 p-2 rounded-lg transition-all ${selectedPrice === price
-                                                    ? "bg-neutral-02 text-neutral-07 font-InterSemiBold"
-                                                    : "text-neutral-04 hover:bg-neutral-02"
-                                                    }`}
-                                            >
-                                                <span className="whitespace-nowrap">{price}</span>
-                                            </button>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </nav>
-                        )}
+                                {selectedPrice}
+                                <img
+                                    className={`transition-transform duration-300 ${isPriceOpen ? "rotate-180" : "rotate-0"}`}
+                                    alt="Dropdown arrow"
+                                    src="/Images/arrow-down.svg"
+                                />
+                            </button>
+
+                            {isPriceOpen && (
+                                <nav
+                                    className="absolute bottom-[110%] left-0 flex flex-col w-[312px] items-start gap-2.5 p-2 bg-white rounded-xl overflow-hidden border-[1.5px] border-solid border-[#f3f5f6] shadow-depth-4 z-50"
+                                    role="navigation"
+                                    aria-label="Price selection menu"
+                                >
+                                    <ul className="w-full" role="list">
+                                        {prices.map((price) => (
+                                            <li key={price} className="w-full">
+                                                <button
+                                                    onClick={() => {
+                                                        setSelectedPrice(price);
+                                                        setIsPriceOpen(false);
+                                                    }}
+                                                    className={`flex w-full items-center gap-2 p-2 rounded-lg transition-all ${selectedPrice === price
+                                                        ? "bg-neutral-02 text-neutral-07 font-InterSemiBold"
+                                                        : "text-neutral-04 hover:bg-neutral-02"
+                                                        }`}
+                                                >
+                                                    <span className="whitespace-nowrap">{price}</span>
+                                                </button>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </nav>
+                            )}
+                        </div>
                     </div>
-                </div>
+                )}
+
+                {/* ----------- MODE: BLOG (All Blog + Featured) ---------- */}
+                {mode === "blog" && (
+                    <nav className="inline-flex items-center gap-10">
+                        <Link
+                            href="#"
+                            className="inline-flex items-center gap-1 border-b border-solid border-[#111111] transition-all hover:drop-shadow-custom"
+                            aria-current="page"
+                        >
+                            <span
+                                className="font-InterSemiBold text-sm text-black-900 tracking-[0] leading-5.5 w-fit whitespace-nowrap"
+                            >
+                                All Blog
+                            </span>
+                        </Link>
+                        <Link href="#"
+                            className="inline-flex items-center gap-1 transition-all hover:drop-shadow-custom">
+                            <span
+                                className="font-InterSemiBold text-sm text-[#807E7E] tracking-[0] leading-5.5 w-fit whitespace-nowrap"
+                            >
+                                Featured
+                            </span>
+                        </Link>
+                    </nav>
+                )}
 
                 {/* ---------- SORT & VIEW BUTTONS ---------- */}
                 <div className="inline-flex items-center gap-8">
