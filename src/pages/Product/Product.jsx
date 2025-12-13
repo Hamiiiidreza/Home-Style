@@ -11,7 +11,9 @@ function Product() {
     <div>
       <Topbar />
       <Navbar />
-      <PageHierarchy />
+      <PageHierarchy
+        items={["Home", "Shop", "Living Room", "Product"]}
+      />
       <ProductDetails />
       <Newsletter />
       <Footer />
