@@ -28,7 +28,7 @@ const BlogCard = ({ id, image, title, fullTitle, date, showFull }) => (
                         title="Read More"
                         textColor="text-neutral-07"
                         borderColor="border-neutral-07"
-                        to={`/articles/${id}`}
+                        to="/articles-details"
                     />
                 </>
             )}
