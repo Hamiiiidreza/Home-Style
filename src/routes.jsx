@@ -7,6 +7,7 @@ import ShoppingCart from "./pages/shopping-cart/shopping-cart";
 import Checkout from "./pages/checkout/checkout";
 import OrderComplete from "./pages/order-complete/order-complete";
 import Articles from "./pages/articles/Articles";
+import ArticlesDetails from "./pages/articles/articles-details";
 
 import UserPanel from "./pages/UserPanel/Index";
 import Account from "./pages/UserPanel/account/Account";
@@ -24,6 +25,7 @@ const routes = [
     { path: '/checkout', element: <Checkout /> },
     { path: '/order-complete', element: <OrderComplete /> },
     { path: '/articles', element: <Articles /> },
+    { path: '/articles-details', element: <ArticlesDetails /> },
     {
         path: '/my-account/*',
         element: <UserPanel />,
