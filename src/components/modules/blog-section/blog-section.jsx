@@ -3,7 +3,12 @@ import BlogCard from "./blog-card";
 import SectionHeader from "../../ui/section-header";
 import ButtonCard from "../../ui/button-card";
 
-const BlogSection = ({ showHeader = true, count = 3 }) => {
+const BlogSection = ({
+    showHeader = true,
+    headerTitle = "Articles",
+    count = 3,
+    showFullCards = false,
+}) => {
 
     const blogs = [
         {
@@ -77,7 +82,7 @@ const BlogSection = ({ showHeader = true, count = 3 }) => {
 
                 {showHeader && (
                     <SectionHeader
-                        title="Articles"
+                        title={headerTitle}
                         linkText="More Articles"
                         to="/articles"
                         mbClass="mb-10"
@@ -89,7 +94,7 @@ const BlogSection = ({ showHeader = true, count = 3 }) => {
                         <BlogCard
                             key={blog.id}
                             {...blog}
-                            showFull={count === 9}
+                            showFull={showFullCards}
                         />
                     ))}
                 </div>
