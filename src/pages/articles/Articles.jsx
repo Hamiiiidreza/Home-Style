@@ -30,7 +30,9 @@ function Articles() {
             </div>
             <BlogSection
                 showHeader={false}
-                count={9} />
+                count={9}
+                showFullCards={true}
+            />
             <Newsletter />
             <Footer />
         </div>
