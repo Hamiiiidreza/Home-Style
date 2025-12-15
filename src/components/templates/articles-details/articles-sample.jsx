@@ -1,4 +1,5 @@
 import React from 'react'
+import BlogSection from '../../modules/blog-section/blog-section';
 
 function ArticlesSample() {
   return (
@@ -145,6 +146,12 @@ function ArticlesSample() {
           </div>
         </div>
       </div>
+      <BlogSection
+        showHeader={true}
+        headerTitle="You might also like"
+        count={3}
+        showFullCards={true}
+      />
     </div>
   )
 }
