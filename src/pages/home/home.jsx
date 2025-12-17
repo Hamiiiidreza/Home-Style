@@ -34,7 +34,15 @@ function Home() {
         showBorder={true}
       />
       <ServicesSection />
-      <SaleBanner />
+      <SaleBanner
+        showSaleText
+        title={
+          <>
+            HUNDREDS of <br /> New lower prices!
+          </>
+        }
+        description="It's more affordable than ever to give every room in your home a stylish makeover"
+      />
       <BlogSection />
       <Newsletter />
       <Footer />
