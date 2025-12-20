@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from '../../components/modules/navbar/navbar';
 import PageHierarchy from '../../components/modules/Page-Hierarchy/page-hierarchy'
 import SaleBanner from '../../components/modules/sale-banner/sale-banner';
+import ContactUsFormPage from '../../components/templates/contact-us-form-page/contact-us-form-page';
+import ServicesSection from '../../components/modules/services-section/services-section';
 import Footer from '../../components/modules/footer/footer';
 
 function ContactUs() {
@@ -39,6 +41,11 @@ function ContactUs() {
           </>
         }
         descriptionClass='text-base leading-6.5'
+      />
+      <ContactUsFormPage />
+      <ServicesSection
+        withBackground
+        withPaddingBottom={false}
       />
       <Footer />
     </div>
