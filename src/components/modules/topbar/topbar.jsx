@@ -23,8 +23,8 @@ function Topbar({ onClose, forceHide = false }) {
   return (
     <>
       {showBanner && (
-        <div className="relative flex items-center justify-end w-full h-10 bg-neutral-02">
-          <div className="inline-flex items-center justify-center gap-3 absolute top-2 left-0 right-0">
+        <div className="relative flex items-center justify-end w-full h-10 bg-neutral-02 px-8 sm:px-0">
+          <div className="inline-flex items-center justify-center gap-3 absolute top-2 left-[-200px] sm:left-0 right-0">
             <div className="inline-flex items-center justify-center gap-3 relative">
               <img src='/Images/ticket-percent.svg'
                 className="relative size-6 hover:drop-shadow-custom transition-all"
@@ -45,7 +45,7 @@ function Topbar({ onClose, forceHide = false }) {
             onClick={handleClose}
           >
             <IoCloseOutline
-              className="absolute size-5 top-2 right-10 cursor-pointer"
+              className="absolute size-5 top-2 right-16 sm:right-10 cursor-pointer"
             />
           </button>
         </div>
