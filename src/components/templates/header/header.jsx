@@ -68,7 +68,7 @@ const Header = ({
                         <button
                             onClick={prevSlide}
                             disabled={activeIndex === 0}
-                            className={`rounded-full w-[52px] h-[52px] flex items-center justify-center transition-all 
+                            className={`rounded-full w-[52px] h-[52px] hidden sm:flex items-center justify-center transition-all 
               ${activeIndex === 0 ? "bg-white text-neutral-400" : "bg-white text-neutral-07 hover:drop-shadow-custom"}`}
                         >
                             <PiArrowLeft className="size-8" />
@@ -76,7 +76,7 @@ const Header = ({
                         <button
                             onClick={nextSlide}
                             disabled={activeIndex === images.length - 1}
-                            className={`rounded-full w-[52px] h-[52px] flex items-center justify-center transition-all 
+                            className={`rounded-full w-[52px] h-[52px] hidden sm:flex items-center justify-center transition-all 
               ${activeIndex === images.length - 1 ? "bg-white text-neutral-400" : "bg-white text-neutral-07 hover:drop-shadow-custom"}`}
                         >
                             <PiArrowRight className="size-8" />
