@@ -23,12 +23,25 @@ function Navbar() {
     <div>
       <div className="container">
         <nav className="w-full bg-white flex items-center justify-between relative">
-          <h1 className="font-PoppinsMedium text-2xl leading-none py-4.5">
-            <span className="text-black hover:drop-shadow-custom transition-all">3legant</span>
-            <span className="text-neutral-04">.</span>
-          </h1>
+          <div className="flex items-center justify-center gap-1">
+            {/* Hamburger – mobile only */}
+            <button className="sm:hidden">
+              <img
+                src="/Images/menu-line-horizontal.svg"
+                alt="menu"
+                className="size-6 bg-cover bg-center"
+              />
+            </button>
 
-          <ul className="flex items-center gap-10 py-4.5 font-InterMedium text-sm">
+            <h1 className="font-PoppinsMedium text-base sm:text-2xl leading-none py-4.5">
+              <span className="text-black hover:drop-shadow-custom transition-all">
+                3legant
+              </span>
+              <span className="text-neutral-04">.</span>
+            </h1>
+          </div>
+
+          <ul className="hidden md:flex items-center gap-10 py-4.5 font-InterMedium text-sm">
             {menuItems.map((menu) => (
               <li className="group" key={menu.path}>
                 <Link
@@ -43,14 +56,17 @@ function Navbar() {
           </ul>
 
           <div className="flex items-center gap-4 py-4">
-            <button>
+            <button className="hidden sm:block">
               <img
                 src="/Images/Search.svg"
                 alt="search-icon"
                 className="size-6 hover:drop-shadow-custom transition-all cursor-pointer"
               />
             </button>
-            <Link to="/register">
+            <Link
+              to="/register"
+              className="hidden sm:block"
+            >
               <img
                 src="/Images/User.svg"
                 alt="user-icon"
