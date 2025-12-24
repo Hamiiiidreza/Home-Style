@@ -86,6 +86,7 @@ const BlogSection = ({
                         linkText="More Articles"
                         to="/articles"
                         mbClass="mb-10"
+                        mobileLayout="inline"
                     />
                 )}
 
