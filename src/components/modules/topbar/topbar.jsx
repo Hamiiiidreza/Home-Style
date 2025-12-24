@@ -33,12 +33,14 @@ function Topbar({ onClose, forceHide = false }) {
                 30% off storewide — Limited time!
               </p>
             </div>
-            <ArrowLink
-              title="Shop Now"
-              textColor="text-secondary-color-blue"
-              borderColor="border-secondary-color-blue"
-              to="/Shop"
-            />
+            <div className="hidden sm:inline-flex">
+              <ArrowLink
+                title="Shop Now"
+                textColor="text-secondary-color-blue"
+                borderColor="border-secondary-color-blue"
+                to="/Shop"
+              />
+            </div>
           </div>
           <button
             aria-label="Close banner"

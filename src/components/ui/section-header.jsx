@@ -9,12 +9,30 @@ const SectionHeader = ({
     mobileLayout = "inline",
 }) => {
     return (
-        <div className={`flex flex-col md:flex-row justify-between items-start md:items-end ${mbClass}`}>
-            <h2 className="font-PoppinsMedium w-[400px] h-auto text-4.5xl text-black leading-none tracking-headline-7 hover:drop-shadow-custom transition-all">
+        <div
+            className={`
+                flex justify-between items-end
+                ${mobileLayout === "separate" ? "md:flex" : "flex"}
+                ${mbClass}
+            `}
+        >
+            <h2 className="font-PoppinsMedium w-[125px] sm:w-[149px] text-4.5xl text-black leading-none tracking-headline-7 transition-all hover:drop-shadow-custom">
                 {title}
             </h2>
-            <Link to={to} className="flex items-center gap-1 border-b border-neutral-07 mt-4 md:mt-0 z-10 transition-all hover:bg-rgba(0,0,0,0.25) hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
-                <span className="font-InterMedium text-base text-neutral-07 leading-1.7">{linkText}</span>
+
+            <Link
+                to={to}
+                className={`
+                    flex items-center gap-1 border-b border-neutral-07 transition-all hover:shadow-[0_4px_4px_rgba(0, 0, 0, 0.25)]
+                    ${mobileLayout === "separate"
+                        ? "hidden md:flex" // 👈 محصولات
+                        : "flex"           // 👈 articles
+                    }
+                `}
+            >
+                <span className="font-InterMedium text-base text-neutral-07">
+                    {linkText}
+                </span>
                 <img
                     className="size-5"
                     src="/Images/arrow-right.svg"

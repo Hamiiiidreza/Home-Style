@@ -11,11 +11,18 @@ function ArrowLink({ title, textColor, borderColor, to, mobileSmall = false }) {
             <div className={`inline-flex items-center ${textColor} gap-1`}>
                 <Link
                     to={to}
-                    className="font-InterMedium text-base">
+                    className={`
+                        font-InterMedium
+                        ${mobileSmall ? 'text-sm sm:text-base' : 'text-base'}
+                    `}
+                >
                     {title}
                 </Link>
                 <GoArrowRight
-                    className="relative size-4.5 cursor-pointer"
+                    className={`
+                        relative cursor-pointer
+                        ${mobileSmall ? 'size-4 sm:size-4.5' : 'size-4.5'}
+                    `}
                 />
             </div>
         </button>
