@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import CartSidebar from '../cart-sidebar/cart-sidebar';
 import Badge from '../../ui/badge';
+import MobileMenu from '../mobile-menu/mobile-menu';
 
 function Navbar() {
   const [menuItems] = useState([
@@ -11,6 +12,7 @@ function Navbar() {
     { name: 'Contact us', path: '/contact-us' },
   ]);
   const [openCart, setOpenCart] = useState(false);
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const location = useLocation();
 
   const isActive = (path) => {
@@ -25,7 +27,10 @@ function Navbar() {
         <nav className="w-full bg-white flex items-center justify-between relative">
           <div className="flex items-center justify-center gap-1">
             {/* Hamburger – mobile only */}
-            <button className="sm:hidden">
+            <button
+              className="sm:hidden"
+              onClick={() => setOpenMobileMenu(true)}
+            >
               <img
                 src="/Images/menu-line-horizontal.svg"
                 alt="menu"
@@ -95,6 +100,7 @@ function Navbar() {
       </div>
 
       <CartSidebar open={openCart} onClose={() => setOpenCart(false)} />
+      <MobileMenu open={openMobileMenu} onClose={() => setOpenMobileMenu(false)} />
     </div>
   );
 }
