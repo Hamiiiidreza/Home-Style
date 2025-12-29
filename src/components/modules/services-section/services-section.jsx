@@ -6,7 +6,7 @@ const ServicesSection = ({
     withPaddingBottom = true,
 }) => {
     const Cards = (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <ServiceCard icon="/Images/service-1.svg" title="Free Shipping" description="Order above $200" />
             <ServiceCard icon="/Images/service-2.svg" title="Money-back" description="30 days guarantee" />
             <ServiceCard icon="/Images/service-3.svg" title="Secure Payments" description="Secured by Stripe" />
