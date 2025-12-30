@@ -33,12 +33,12 @@ function Breadcrumb({ title, name, desc }) {
                         </li>
                     </ul>
                     <h1
-                        className="font-PoppinsMedium text-black text-[54px] tracking-headline-3 leading-[58px] whitespace-nowrap transition-all hover:drop-shadow-custom"
+                        className="font-PoppinsMedium text-black text-[40px] sm:text-[54px] tracking-headline-4 sm:tracking-headline-3 leading-11 sm:leading-14.5 whitespace-nowrap transition-all hover:drop-shadow-custom"
                     >
                         {name}
                     </h1>
                     <p
-                        className="font-InterRegular text-black-900 text-xl text-center tracking-[0] leading-8 whitespace-nowrap transition-all hover:drop-shadow-custom"
+                        className="font-InterRegular text-black-900 text-base sm:text-xl text-center tracking-[0] leading-6.5 sm:leading-8 whitespace-nowrap transition-all hover:drop-shadow-custom"
                     >
                         {desc}
                     </p>
