@@ -2,15 +2,15 @@ import React from 'react';
 
 const Newsletter = () => (
     <section
-        className="w-full h-[360px] bg-cover bg-center flex items-center justify-center bg-[url(/Images/newsletter.png)]"
+        className="w-full h-[360px] flex items-center justify-center bg-[#F2F4F6] lg:bg-[url(/Images/newsletter.png)] lg:bg-cover lg:bg-center"
 
     >
         <div className="relative text-center w-[528px] h-full transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
             <div className='absolute top-27 w-full h-[166px]'>
-                <h2 className="font-PoppinsMedium text-neutral-07 text-[40px] mb-2 transition-all hover:drop-shadow-custom">
+                <h2 className="font-PoppinsMedium text-neutral-07 text-[28px] sm:text-[40px] mb-2 leading-8.5 sm:leading-11 tracking-headline-6 sm:tracking-headline-4 transition-all hover:drop-shadow-custom">
                     Join Our Newsletter
                 </h2>
-                <p className="font-InterRegular text-lg text-neutral-07 mb-8 transition-all hover:drop-shadow-custom">
+                <p className="font-InterRegular text-sm sm:text-lg text-neutral-07 mb-8 leading-5.5 sm:leading-7.5 tracking-[0] transition-all hover:drop-shadow-custom">
                     Sign up for deals, new products and promotions
                 </p>
 

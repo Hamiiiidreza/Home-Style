@@ -7,7 +7,7 @@ const SaleBanner = ({
     title,
     description,
     withContainer = false,
-    descriptionClass = 'text-xl leading-1.6'
+    descriptionClass = 'text-base sm:text-xl leading-6.5 sm:leading-8'
 }) => {
     return (
         <section
@@ -30,7 +30,7 @@ const SaleBanner = ({
                         </p>
                     )}
 
-                    <h2 className="font-PoppinsMedium leading-1.1 text-neutral-07 text-4xl mb-4 tracking-headline-4 transition-all hover:drop-shadow-custom">
+                    <h2 className="font-PoppinsMedium leading-9.5 sm:leading-11 text-neutral-07 text-[34px] sm:text-4xl mb-4 tracking-headline-5 sm:tracking-headline-4 transition-all hover:drop-shadow-custom">
                         {title}
                     </h2>
 
