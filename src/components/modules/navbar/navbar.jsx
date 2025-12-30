@@ -28,7 +28,7 @@ function Navbar() {
           <div className="flex items-center justify-center gap-1">
             {/* Hamburger – mobile only */}
             <button
-              className="sm:hidden"
+              className="md:hidden"
               onClick={() => setOpenMobileMenu(true)}
             >
               <img
@@ -38,7 +38,7 @@ function Navbar() {
               />
             </button>
 
-            <h1 className="font-PoppinsMedium text-base sm:text-2xl leading-none py-4.5">
+            <h1 className="font-PoppinsMedium text-base md:text-2xl leading-none py-4.5">
               <span className="text-black hover:drop-shadow-custom transition-all">
                 3legant
               </span>
