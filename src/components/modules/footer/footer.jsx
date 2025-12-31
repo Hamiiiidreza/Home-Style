@@ -2,11 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => (
-<<<<<<< HEAD
-    <footer className="w-full bg-neutral-07 px-20 py-12 ">
-=======
+
     <footer className="w-full bg-neutral-07 px-8 py-12 md:px-40 md:pt-20 md:pb-8 lg:px-60 lg:pt-24 lg:pb-12">
->>>>>>> responsive
 
         {/* Top Section */}
         <div className="flex flex-col md:flex-row lg:flex-row justify-between items-center mb-[49px] lg:mb-16">
@@ -19,13 +16,7 @@ const Footer = () => (
                         <span className="text-neutral-04">.</span>
                     </h1>
                 </div>
-
-<<<<<<< HEAD
                 <div className="w-6 h-px md:w-px md:h-6 bg-neutral-04 my-2 md:my-0"></div>
-=======
-                <div className="w-px h-6 bg-neutral-04"></div>
->>>>>>> responsive
-
                 <p className="font-InterRegular text-sm lg:text-base text-neutral-03">
                     Gift & Decoration Store
                 </p>
