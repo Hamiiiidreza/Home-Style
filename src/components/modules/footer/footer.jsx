@@ -2,7 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => (
+<<<<<<< Updated upstream
     <footer className="w-full bg-neutral-07 px-8 py-12 md:px-40 md:pt-20 md:pb-8 lg:px-60 lg:pt-24 lg:pb-12">
+=======
+
+    <footer className="w-full bg-neutral-07 px-20 py-12">
+>>>>>>> Stashed changes
 
         {/* Top Section */}
         <div className="flex flex-col md:flex-row lg:flex-row justify-between items-center mb-[49px] lg:mb-16">
