@@ -4,7 +4,7 @@ import Product from "./pages/Product/Product"
 import ContactUs from "./pages/contact-us/contact-us"
 import Register from "./pages/register/Register";
 import ShoppingCart from "./pages/shopping-cart/shopping-cart";
-import Checkout from "./pages/checkout/checkout";
+import Checkout from "./pages/Checkout/Checkout";
 import OrderComplete from "./pages/order-complete/order-complete";
 import Articles from "./pages/articles/Articles";
 import ArticlesDetails from "./pages/articles/articles-details";

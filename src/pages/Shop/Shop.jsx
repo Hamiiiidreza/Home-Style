@@ -29,7 +29,7 @@ function Shop() {
           desc="Let's design the place you always imagined."
         />
       </Header>
-      <div className="-mt-21">
+      <div className="mt-0 md:-mt-21">
        <FilterAndSortpanel
           mode="shop"
         />

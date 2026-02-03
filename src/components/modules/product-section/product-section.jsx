@@ -2,6 +2,7 @@ import React from 'react';
 import ProductCard from './product-card';
 import SectionHeader from '../../ui/section-header';
 import ButtonCard from '../../ui/button-card';
+import { Link } from 'react-router-dom';
 
 const ProductSection = ({
     showHeader = true,
@@ -108,6 +109,7 @@ const ProductSection = ({
                         linkText="More Products"
                         to=""
                         mbClass="mb-12"
+                        mobileLayout="separate"
                     />
                 )}
 

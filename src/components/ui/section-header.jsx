@@ -1,7 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SectionHeader = ({ title, linkText, to, mbClass }) => {
+const SectionHeader = ({
+    title,
+    linkText,
+    to,
+    mbClass,
+    mobileLayout = "inline",
+}) => {
     return (
         <div
             className={`
@@ -28,7 +34,7 @@ const SectionHeader = ({ title, linkText, to, mbClass }) => {
                     {linkText}
                 </span>
                 <img
-                    className="w-5 h-5"
+                    className="size-5"
                     src="/Images/arrow-right.svg"
                     alt="Arrow"
                 />

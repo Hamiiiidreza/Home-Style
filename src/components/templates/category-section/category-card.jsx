@@ -28,6 +28,7 @@ const CategoryCard = ({ image, title, heightClass, isTop, imageClass, hasInnerLe
                     textColor="text-neutral-07"
                     borderColor="border-neutral-07"
                     to="/Shop"
+                    mobileSmall
                 />
             </div>
         ) : (
@@ -40,6 +41,7 @@ const CategoryCard = ({ image, title, heightClass, isTop, imageClass, hasInnerLe
                     textColor="text-neutral-07"
                     borderColor="border-neutral-07"
                     to="/Shop"
+                    mobileSmall
                 />
             </div>
         )}

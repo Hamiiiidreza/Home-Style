@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { GoArrowRight } from "react-icons/go";
 
-function ArrowLink({ title, textColor, borderColor, to }) {
+function ArrowLink({ title, textColor, borderColor, to, mobileSmall = false }) {
     return (
         <button
-            className={`hidden sm:inline-flex items-center gap-0.5 hover:drop-shadow-custom transition-all border-b ${borderColor}`}
+            className={`inline-flex items-center gap-0.5 hover:drop-shadow-custom transition-all border-b ${borderColor}`}
             aria-label="Shop now for 30% off"
         >
             <div className={`inline-flex items-center ${textColor} gap-1`}>
