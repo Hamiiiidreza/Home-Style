@@ -37,7 +37,7 @@ function Gallery() {
                     </button>
                 </div>
             </div>
-            <div className="inline-flex items-start gap-6">
+            <div className="hidden sm:inline-flex items-start gap-6">
                 <button
                     className="w-[167px] h-[167px] bg-[url(/Images/slider-area-1.svg)] bg-cover bg-[50%_50%] transition-all hover:drop-shadow-custom"
                     aria-label="View product image 1"
