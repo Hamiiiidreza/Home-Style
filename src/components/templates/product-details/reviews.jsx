@@ -2,6 +2,13 @@ import React, { useState, useCallback } from 'react';
 import CustomRating from '../../ui/custom-rating';
 import Comments from './Comments';
 import ButtonCard from '../../ui/button-card';
+import {
+    Select,
+    SelectTrigger,
+    SelectValue,
+    SelectContent,
+    SelectItem,
+} from "@/components/ui/select";
 
 const REVIEWS_DATA = [
     {
@@ -133,22 +140,64 @@ function Reviews({ product, reviews }) {
                     <h3 className="font-PoppinsMedium text-black text-2xl tracking-headline-6 leading-[34px] relative w-fit whitespace-nowrap transition-all hover:drop-shadow-custom">
                         11 Reviews
                     </h3>
-                    <div className="flex w-64 items-center justify-between relative rounded-lg overflow-hidden border-2 border-gray-300 transition-all hover:shadow-md max-sm:w-full">
-                        <select
-                            className="flex-1 cursor-pointer font-InterSemiBold text-neutral-07 text-base tracking-[0] leading-[26px] bg-transparent border-0 outline-0 appearance-none pl-4 pr-10 py-3"
-                            aria-label="Sort reviews"
-                        >
-                            <option className="p-2" value="newest">Newest</option>
-                            <option className="p-2" value="oldest">Oldest</option>
-                            <option className="p-2" value="highest">Highest Rated</option>
-                            <option className="p-2" value="lowest">Lowest Rated</option>
-                        </select>
-                        <img
-                            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2"
-                            src="/Images/arrow-down.svg"
-                            alt="Dropdown arrow"
-                        />
-                    </div>
+                    <Select defaultValue="newest">
+                        <div className="relative w-64 max-sm:w-full">
+
+                            {/* Trigger */}
+                            <SelectTrigger
+                                className="
+                                           flex w-full items-center justify-between
+                                           rounded-lg border-2 border-gray-300
+                                           font-InterSemiBold text-neutral-07 text-base
+                                           pl-4 pr-10 py-5.5
+                                           transition-all hover:hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]
+                                           [&>svg]:hidden"
+                            >
+                                <SelectValue placeholder="Newest" />
+                            </SelectTrigger>
+
+                            {/* Custom Arrow Icon */}
+                            <img
+                                src="/Images/arrow-down.svg"
+                                alt="Dropdown arrow"
+                                className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2"
+                            />
+
+                            {/* Dropdown */}
+                            <SelectContent
+                                className="w-full rounded-lg border border-gray-200 shadow-lg">
+                                <SelectItem
+                                    value="newest"
+                                    className="font-InterSemiBold text-neutral-07 text-base"
+                                >
+                                    Newest
+                                </SelectItem>
+
+                                <SelectItem
+                                    value="oldest"
+                                    className="font-InterSemiBold text-neutral-07 text-base"
+                                >
+                                    Oldest
+                                </SelectItem>
+
+                                <SelectItem
+                                    value="highest"
+                                    className="font-InterSemiBold text-neutral-07 text-base"
+                                >
+                                    Highest Rated
+                                </SelectItem>
+
+                                <SelectItem
+                                    value="lowest"
+                                    className="font-InterSemiBold text-neutral-07 text-base"
+                                >
+                                    Lowest Rated
+                                </SelectItem>
+                            </SelectContent>
+
+                        </div>
+                    </Select>
+
                 </div>
 
                 <div className="flex flex-col items-center gap-6 relative w-full">
