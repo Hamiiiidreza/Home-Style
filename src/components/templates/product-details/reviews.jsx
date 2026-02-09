@@ -72,11 +72,16 @@ function Reviews({ product, reviews }) {
                     </button>
                     <button
                         type="submit"
-                        className="box-border inline-flex items-center justify-center gap-2 px-10 py-1.5 h-10 w-44 bg-neutral-07 rounded-full transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
+                        className="box-border inline-flex items-center justify-center gap-2 max-sm:px-0 px-10 max-sm:h-10 h-10 max-sm:w-10 w-44 bg-neutral-07 rounded-full transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                     >
-                        <div className="text-white font-InterMedium text-base text-center tracking-button-s leading-7 whitespace-nowrap transition-all hover:drop-shadow-custom">
+                        <div className="max-sm:hidden text-white font-InterMedium text-base text-center tracking-button-s leading-7 whitespace-nowrap transition-all hover:drop-shadow-custom">
                             Write Review
                         </div>
+                        <img
+                            src="/Images/arrow-right-2.svg"
+                            alt="Send"
+                            className="hidden max-sm:block"
+                        />
                     </button>
                 </div>
             </form>
@@ -124,11 +129,11 @@ function Reviews({ product, reviews }) {
 
             {/* Reviews List */}
             <div className="flex flex-col items-start gap-10 w-full">
-                <div className="flex w-full items-center justify-between">
+                <div className="flex w-full items-center justify-between max-sm:flex-col max-sm:items-start max-sm:gap-4">
                     <h3 className="font-PoppinsMedium text-black text-2xl tracking-headline-6 leading-[34px] relative w-fit whitespace-nowrap transition-all hover:drop-shadow-custom">
                         11 Reviews
                     </h3>
-                    <div className="flex w-64 items-center justify-between relative rounded-lg overflow-hidden border-2 border-gray-300 transition-all hover:shadow-md">
+                    <div className="flex w-64 items-center justify-between relative rounded-lg overflow-hidden border-2 border-gray-300 transition-all hover:shadow-md max-sm:w-full">
                         <select
                             className="flex-1 cursor-pointer font-InterSemiBold text-neutral-07 text-base tracking-[0] leading-[26px] bg-transparent border-0 outline-0 appearance-none pl-4 pr-10 py-3"
                             aria-label="Sort reviews"
