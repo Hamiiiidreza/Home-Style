@@ -33,7 +33,7 @@ const Tabs = ({ product }) => {
     ];
 
     return (
-        <div className="w-full">
+        <div className="w-full pl-4">
 
             {/* ================================================= */}
             {/* ✅ Desktop Tabs */}
