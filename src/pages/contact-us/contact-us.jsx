@@ -18,16 +18,16 @@ function ContactUs() {
       />
       <div className="container flex flex-col w-full items-start gap-6 mt-10 mb-12">
         <h1
-          className="w-[834px] font-PoppinsMedium text-neutral-07 text-[54px] tracking-headline-3 leading-14.5 transition-all hover:drop-shadow-custom"
+          className="max-w-[834px] font-PoppinsMedium text-neutral-07 text-[28px] md:text-[54px] tracking-headline-6 md:tracking-headline-3 leading-8.5 md:leading-14.5 transition-all hover:drop-shadow-custom"
         >
           We believe in sustainable decor. We're passionate about life at home.
         </h1>
         <p
-          className="w-[834px] font-InterRegular text-neutral-07 text-base tracking-[0] leading-6.5 transition-all hover:drop-shadow-custom"
+          className="max-w-[834px] font-InterRegular text-neutral-07 text-base tracking-[0] leading-6.5 transition-all hover:drop-shadow-custom"
         >
           Our features timeless furniture, with natural fabrics, curved lines, plenty of mirrors and classic design,
-          which <br /> can be incorporated into any decor project. The pieces enchant for their sobriety, to last for
-          generations, <br /> faithful to the shapes of each period, with a touch of the present
+          which can be incorporated into any decor project. The pieces enchant for their sobriety, to last for
+          generations, faithful to the shapes of each period, with a touch of the present
         </p>
       </div>
       <SaleBanner
