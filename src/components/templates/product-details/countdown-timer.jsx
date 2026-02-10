@@ -3,7 +3,7 @@ import React from 'react'
 function CountdownTimer() {
     return (
 
-        <div className="flex flex-col items-start w-[508px] gap-3 px-0 py-6 border-b border-solid border-neutral-03">
+        <div className="flex flex-col items-start w-full gap-3 px-0 py-6 border-b border-solid border-neutral-03">
             <div className="font-InterRegular text-base text-neutral-05 leading-[26px] transition-all hover:drop-shadow-custom">
                 Offer expires in:
             </div>

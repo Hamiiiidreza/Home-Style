@@ -135,8 +135,8 @@ function Details() {
                 </div>
 
                 {/* Add to Cart Section */}
-                <div className="inline-flex flex-col gap-4 px-0 py-8 items-start relative">
-                    <div className="inline-flex items-start gap-6 relative h-[52px]">
+                <div className="inline-flex flex-col gap-4 px-0 py-8 items-start relative w-full">
+                    <div className="inline-flex items-start gap-6 relative h-[52px] w-full">
                         <div className="flex flex-col w-[127px] h-[52px] items-center justify-center gap-2.5 px-4 py-3 relative bg-neutral-02 rounded-lg transition-all hover:drop-shadow-custom">
                             <div className="relative self-stretch w-full h-full">
                                 <button
@@ -151,7 +151,7 @@ function Details() {
                                     value={quantity}
                                     min="1"
                                     readOnly
-                                    className="absolute top-[calc(50%_-_13px)] left-[calc(50%_-_7px)] text-base font-semibold text-black text-center whitespace-nowrap bg-transparent border-0 w-8"
+                                    className="absolute top-[calc(50%_-_13px)] left-[calc(50%_-_15px)] text-base font-semibold text-black text-center whitespace-nowrap bg-transparent border-0 w-8"
                                     aria-label="Quantity"
                                 />
                                 <button
@@ -167,7 +167,7 @@ function Details() {
                             </div>
                         </div>
                         <button
-                            className="box-border cursor-pointer h-full flex w-[357px] items-center justify-center gap-2 px-10 py-2.5 rounded-lg border border-solid border-neutral-07 transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
+                            className="box-border cursor-pointer h-full flex w-full sm:w-[357px] items-center justify-center gap-2 px-10 py-2.5 rounded-lg border border-solid border-neutral-07 transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                             aria-label="Add to wishlist"
                         >
                             <img
@@ -183,7 +183,7 @@ function Details() {
                     <ButtonCard
                         onClick={handleAddToCart}
                         title="Add to Cart"
-                        className="box-border cursor-pointer flex h-[52px] w-[508px] items-center justify-center gap-2 px-10 py-2.5 relative bg-neutral-07 rounded-lg transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)] font-InterMedium text-lg text-white text-center tracking-button-m leading-8 whitespace-nowrap hover:drop-shadow-custom"
+                        className="box-border cursor-pointer flex h-[52px] w-full sm:w-[508px] items-center justify-center gap-2 px-10 py-2.5 relative bg-neutral-07 rounded-lg transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)] font-InterMedium text-lg text-white text-center tracking-button-m leading-8 whitespace-nowrap hover:drop-shadow-custom"
                     />
                 </div>
 
