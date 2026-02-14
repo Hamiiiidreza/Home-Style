@@ -56,7 +56,7 @@ function Details() {
                                 11 Reviews
                             </div>
                         </div>
-                        <h1 className="font-PoppinsMedium text-[40px] text-neutral-07 leading-[44px] tracking-headline-4 whitespace-nowrap transition-all hover:drop-shadow-custom">
+                        <h1 className="font-PoppinsMedium text-[40px] text-neutral-07 leading-[44px] tracking-headline-4 transition-all hover:drop-shadow-custom">
                             Tray Table
                         </h1>
                         <p className="font-InterRegular text-base text-neutral-04 leading-[26px] transition-all hover:drop-shadow-custom">
@@ -167,7 +167,7 @@ function Details() {
                             </div>
                         </div>
                         <button
-                            className="box-border cursor-pointer h-full flex w-full sm:w-[357px] items-center justify-center gap-2 px-10 py-2.5 rounded-lg border border-solid border-neutral-07 transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
+                            className="box-border cursor-pointer h-full flex w-full md:w-[357px] items-center justify-center gap-2 px-10 py-2.5 rounded-lg border border-solid border-neutral-07 transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                             aria-label="Add to wishlist"
                         >
                             <img
@@ -183,11 +183,11 @@ function Details() {
                     <ButtonCard
                         onClick={handleAddToCart}
                         title="Add to Cart"
-                        className="box-border cursor-pointer flex h-[52px] w-full sm:w-[508px] items-center justify-center gap-2 px-10 py-2.5 relative bg-neutral-07 rounded-lg transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)] font-InterMedium text-lg text-white text-center tracking-button-m leading-8 whitespace-nowrap hover:drop-shadow-custom"
+                        className="box-border cursor-pointer flex h-[52px] w-full md:max-w-[504px] items-center justify-center gap-2 px-10 py-2.5 relative bg-neutral-07 rounded-lg transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)] font-InterMedium text-lg text-white text-center tracking-button-m leading-8 whitespace-nowrap hover:drop-shadow-custom"
                     />
                 </div>
 
-                <div className="flex flex-col w-[508px] items-start gap-2 px-0 py-6 border-t border-solid border-neutral-03">
+                <div className="flex flex-col w-full md:max-w-[508px] items-start gap-2 px-0 py-6 border-t border-solid border-neutral-03">
                     <div className="inline-flex items-start gap-[98px]">
                         <div className="font-InterRegular text-neutral-04 text-xs tracking-[0] leading-5 whitespace-nowrap transition-all hover:drop-shadow-custom">
                             SKU

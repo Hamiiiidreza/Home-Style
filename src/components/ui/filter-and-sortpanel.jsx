@@ -172,10 +172,7 @@ function FilterAndSortpanel({ mode = "shop", defaultActiveButton = 2 }) {
                                         ? "max-h-96 opacity-100 translate-y-0"
                                         : "max-h-0 opacity-0 -translate-y-2 pointer-events-none"
                                     }
-                                        
-                                            md:absolute md:bottom-[110%] md:left-0 md:w-full
-                                            
-  `}
+                                            md:absolute md:bottom-[110%] md:left-0 md:w-full`}
                                 role="navigation"
                                 aria-label="Price selection menu"
                             >

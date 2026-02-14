@@ -5,13 +5,21 @@ import Details from './Details';
 
 const ProductDetail = ({ product }) => {
   return (
-    <div className="container bg-white mx-auto">
+    <div className="container bg-white mx-auto overflow-x-hidden">
       {/* Product Section */}
-      <section className="flex flex-col lg:flex-row gap-12 items-start justify-between mx-auto py-8 px-4">
+      <section
+        className="
+          grid grid-cols-1 
+          lg:grid-cols-2 
+          gap-12 
+          items-start 
+          py-8 
+        "
+      >
         <Gallery product={product} />
         <Details product={product} />
       </section>
-      
+
       {/* Tabs Section */}
       <Tabs product={product} />
     </div>

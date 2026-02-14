@@ -9,7 +9,7 @@ const ProductCard = ({
     isNew,
     discount
 }) => (
-    <div className="w-[262px] group transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+    <div className="w-full lg:w-[222px] group transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
         <div
             className="relative w-full h-[349px] bg-cover bg-center transition-all group-hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)] after:absolute after:content-[''] after:left-0 after:top-0 after:w-full after:h-[268px] after:bg-rgba(0,0,0,0.25) after:opacity-0 after:z-10 after:shadow-[0_4px_4px_rgba(0,0,0,0.25)] after:transition-all group-hover:after:opacity-100"
         >
@@ -21,7 +21,7 @@ const ProductCard = ({
             />
 
             <ButtonCard
-             className='absolute opacity-0 transition-all group-hover:opacity-100 font-InterMedium w-full max-w-[230px] h-[46px] py-6 px-2 bottom-4 left-1/2 transform -translate-x-1/2 bg-neutral-07 text-neutral-01 text-base tracking-button-s rounded-lg shadow-shadow-01 flex items-center justify-center cursor-pointer'
+             className='absolute opacity-0 transition-all group-hover:opacity-100 font-InterMedium w-full max-w-[210px] h-[46px] py-6 px-2 bottom-4 left-1/2 transform -translate-x-1/2 bg-neutral-07 text-neutral-01 text-base tracking-button-s rounded-lg shadow-shadow-01 flex items-center justify-center cursor-pointer'
              title='Add to cart'
              />
             <button className="absolute flex items-center justify-center top-4 right-4 w-8 h-8 rounded-4xl bg-white opacity-0 transition-all group-hover:opacity-100">
@@ -38,14 +38,14 @@ const ProductCard = ({
                     </div>
                 )}
                 {discount && (
-                    <div className="px-3.5 py-1 rounded transition-all group-hover:bg-secondary-color-green group-hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
-                        <span className="font-InterBold text0base leading-none text-neutral-01 transition-all group-hover:drop-shadow-custom">{discount}</span>
+                    <div className="px-3.5 py-1 rounded transition-all bg-secondary-color-green group-hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+                        <span className="font-InterBold text0base leading-none text-neutral-01 transition-all hover:drop-shadow-custom">{discount}</span>
                     </div>
                 )}
             </div>
         </div>
 
-        <div className="pt-4 transition-all group-hover:drop-shadow-custom">
+        <div className="py-4 pl-4 transition-all group-hover:drop-shadow-custom">
             <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
                     <img
