@@ -27,7 +27,7 @@ function ContactUsFormPage() {
                             <address
                                 className="w-full max-w-[293px] font-InterSemiBold text-base text-neutral-07 text-center leading-6.5 tracking-[0] not-italic transition-all hover:drop-shadow-custom"
                             >
-                                234 Hai Trieu, Ho Chi Minh City, <br />Viet Nam
+                                234 Hai Trieu, Ho Chi Minh City, Viet Nam
                             </address>
                         </div>
                     </div>

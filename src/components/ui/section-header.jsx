@@ -16,7 +16,7 @@ const SectionHeader = ({
                 ${mbClass}
             `}
         >
-            <h2 className="font-PoppinsMedium w-[125px] sm:w-[149px] text-4.5xl text-black leading-none tracking-headline-7 transition-all hover:drop-shadow-custom">
+            <h2 className="font-PoppinsMedium w-[372px] text-xl sm:text-4.5xl text-black leading-none tracking-headline-7 transition-all hover:drop-shadow-custom">
                 {title}
             </h2>
 
