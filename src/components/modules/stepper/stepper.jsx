@@ -8,58 +8,84 @@ function Stepper({ title, currentStep }) {
     ];
 
     return (
-        <div className="inline-flex flex-col items-center gap-10">
-            <div className="font-PoppinsMedium text-black text-[54px] tracking-headline-3 leading-14.5 whitespace-nowrap transition-all hover:drop-shadow-custom">
+        <div className="w-full flex flex-col items-center gap-8">
+            <h2 className="font-PoppinsMedium text-neutral-07 text-3xl sm:text-4xl lg:text-[54px] text-center">
                 {title}
-            </div>
+            </h2>
 
-            <div className="inline-flex gap-8 items-start">
-                {steps.map((step) => {
-                    const isCompleted = currentStep > step.id;
-                    const isCurrent = currentStep === step.id;
-                    const isUpcoming = currentStep < step.id;
+            <div className="w-full flex justify-center">
+                <div className="flex w-full max-w-5xl gap-4 sm:gap-6 lg:gap-8">
+                    {steps.map((step) => {
+                        const isCompleted = currentStep > step.id;
+                        const isCurrent = currentStep === step.id;
+                        const isUpcoming = currentStep < step.id;
 
-                    return (
-                        <div
-                            key={step.id}
-                            className={`flex flex-col w-64 gap-6 pt-0 pb-[26px] px-0 items-start transition-all hover:drop-shadow-custom
-                            ${isCompleted ? "border-b-2 border-secondary-color-green" : ""}
-                            ${isCurrent ? "border-b-2 border-[#23262F]" : ""}
-                            `}
-                        >
-                            <div className="flex gap-[17px] self-stretch w-full items-center">
-                                <div
-                                    className={`flex items-center justify-center rounded-full overflow-hidden size-10
-                                    ${isCompleted ? "bg-secondary-color-green text-white" : ""}
-                                    ${isCurrent ? "bg-[#23262F] text-[#FCFCFD]" : ""}
-                                    ${isUpcoming ? "bg-[#B1B5C3] text-[#FCFCFD]" : ""}
-                                    `}
-                                >
-                                    {isCompleted ? (
-                                        <img
-                                            src="/Images/tick.svg"
-                                            className="text-white text-lg size-6"
-                                        />
-                                    ) : (
-                                        <span className="font-InterSemiBold text-base leading-[26px]">
-                                            {step.id}
-                                        </span>
-                                    )}
-                                </div>
+                        const isVisibleOnMobile =
+                            step.id === currentStep || step.id === currentStep + 1;
 
-                                <div
-                                    className={`font-InterSemiBold text-base leading-[26px]
-                                    ${isCompleted ? "text-secondary-color-green" : ""}
-                                    ${isCurrent ? "text-[#23262F]" : ""}
-                                    ${isUpcoming ? "text-[#B1B5C3]" : ""}
-                                    `}
-                                >
-                                    {step.name}
+                        return (
+                            <div
+                                key={step.id}
+                                className={`
+                  flex flex-col pb-4
+                  sm:flex-1
+
+                  ${!isVisibleOnMobile
+                                        ? "hidden sm:flex"
+                                        : "flex"
+                                    }
+
+                  ${isCurrent
+                                        ? "flex-1"
+                                        : ""
+                                    }
+
+                  ${isCompleted
+                                        ? "border-b-2 border-secondary-color-green"
+                                        : ""
+                                    }
+
+                  ${isCurrent
+                                        ? "border-b-2 border-[#23262F]"
+                                        : ""
+                                    }
+                `}
+                            >
+                                <div className="flex items-center gap-3">
+                                    <div
+                                        className={`
+                      flex items-center justify-center rounded-full size-10 shrink-0
+                      ${isCompleted ? "bg-secondary-color-green text-white" : ""}
+                      ${isCurrent ? "bg-[#23262F] text-white" : ""}
+                      ${isUpcoming ? "bg-[#B1B5C3] text-white" : ""}
+                    `}
+                                    >
+                                        {isCompleted ? (
+                                            <img src="/Images/tick.svg" className="size-6" />
+                                        ) : (
+                                            <span className="font-InterSemiBold text-base">
+                                                {step.id}
+                                            </span>
+                                        )}
+                                    </div>
+
+                                    <div
+                                        className={`
+                      font-InterSemiBold text-sm sm:text-base truncate
+                      ${step.id !== currentStep ? "hidden sm:block" : "block"}
+
+                      ${isCompleted ? "text-secondary-color-green" : ""}
+                      ${isCurrent ? "text-[#23262F]" : ""}
+                      ${isUpcoming ? "text-[#B1B5C3]" : ""}
+                    `}
+                                    >
+                                        {step.name}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    );
-                })}
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );

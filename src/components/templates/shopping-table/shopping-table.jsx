@@ -39,99 +39,91 @@ function ShoppingTable() {
     }
 
     return (
-        <div>
-            <div class="inline-flex flex-col items-center py-20 relative bg-white container">
+        <div className='container'>
+            <div class="flex flex-col items-center py-20 relative bg-white">
                 <Stepper
                     title="Cart"
                     currentStep={1}
                 />
                 <div class="inline-flex flex-col items-start">
-                    <div class="inline-flex items-start gap-16 px-0 py-20">
-                        <div class="inline-flex flex-col items-start">
-                            <div
-                                class="flex w-[643px] items-start justify-between pt-0 pb-6 px-0 border-b border-solid border-[#6c7174]"
-                            >
-                                <div
-                                    class="font-InterSemiBold text-black-900 tracking-[0] leading-6.5 whitespace-nowrap transition-all hover:drop-shadow-custom"
-                                >
+                    <div class="flex flex-col xl:flex-row gap-8 w-full py-20">
+                        <div className="inline-flex flex-col items-start">
+                            <div className="grid w-full max-w-[643px] grid-cols-[275px_1fr] border-b border-solid border-[#6c7174] pb-6">
+                                <div className="font-InterSemiBold text-black-900 tracking-[0] leading-6.5 whitespace-nowrap transition-all hover:drop-shadow-custom">
                                     Product
                                 </div>
-                                <div class="flex w-[322px] items-center justify-between *:font-InterSemiBold text-base text-black-900 tracking-[0] leading-6.5 whitespace-nowrap">
-                                    <div className='transition-all hover:drop-shadow-custom'>
+                                <div className="grid grid-cols-3 text-center font-InterSemiBold text-base text-black-900 tracking-[0] leading-6.5 whitespace-nowrap">
+
+                                    <div className="transition-all hover:drop-shadow-custom">
                                         Quantity
                                     </div>
-                                    <div className='transition-all hover:drop-shadow-custom'>
+
+                                    <div className="transition-all hover:drop-shadow-custom">
                                         Price
                                     </div>
-                                    <div className='transition-all hover:drop-shadow-custom'>
+
+                                    <div className="transition-all hover:drop-shadow-custom">
                                         Subtotal
                                     </div>
                                 </div>
                             </div>
                             {cartItems.map((item) => (
                                 <div
-                                    class="flex w-[643px] items-center justify-between px-0 py-6 border-b border-solid border-neutral-03"
+                                    key={item.id}
+                                    className="grid w-full max-w-[643px] grid-cols-[275px_1fr] items-center border-b border-solid border-neutral-03 py-6"
                                 >
-                                    <div class="inline-flex flex-col items-start gap-2.5">
-                                        <div class="flex w-[316px] items-center gap-4">
-                                            <div
-                                                class="bg-neutral-02"
-                                            >
+                                    <div className="flex items-center gap-4">
+                                        <div className="bg-neutral-02">
+                                            <img
+                                                src={item.image}
+                                                alt={item.name}
+                                                className="w-20 h-24 object-cover mix-blend-multiply transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
+                                            />
+                                        </div>
+                                        <div className="flex flex-col gap-2">
+
+                                            <div className="font-InterSemiBold text-neutral-07 text-sm tracking-[0] leading-5.5 transition-all hover:drop-shadow-custom">
+                                                {item.name}
+                                            </div>
+
+                                            <div className="font-InterRegular text-neutral-04 text-xs tracking-[0] leading-5 whitespace-nowrap transition-all hover:drop-shadow-custom">
+                                                color: {item.color}
+                                            </div>
+
+                                            {/* Remove */}
+                                            <button className="flex items-center gap-1 border-none text-neutral-04 text-sm transition-all hover:drop-shadow-custom">
                                                 <img
-                                                    src={item.image}
-                                                    alt={item.name}
-                                                    className="w-20 h-24 object-cover mix-blend-multiply transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
+                                                    src="/Images/Close.svg"
+                                                    className="size-5"
+                                                    alt="remove"
                                                 />
-                                            </div>
-                                            <div class="flex items-start gap-4 flex-1 grow">
-                                                <div class="flex flex-col w-[210px] items-start justify-center gap-2">
-                                                    <div
-                                                        class="font-InterSemiBold text-neutral-07 text-sm tracking-[0] leading-5.5 transition-all hover:drop-shadow-custom"
-                                                    >
-                                                        {item.name}
-                                                    </div>
-                                                    <div
-                                                        class="font-InterRegular text-neutral-04 text-xs tracking-[0] leading-5 whitespace-nowrap transition-all hover:drop-shadow-custom"
-                                                    >
-                                                        color:{item.color}
-                                                    </div>
-                                                    <button
-                                                        class="all-[unset] box-border flex items-center gap-0.5 border-0 border-none"
-                                                    >
-                                                        <div class="flex items-center gap-1">
-                                                            <img
-                                                                class="size-6 transition-all hover:drop-shadow-custom"
-                                                                src="/Images/Close.svg"
-                                                            />
-                                                            <div
-                                                                class="font-InterSemiBold text-sm text-neutral-04 tracking-[0] leading-5.5 whitespace-nowrap transition-all hover:drop-shadow-custom"
-                                                            >
-                                                                Remove
-                                                            </div>
-                                                        </div>
-                                                    </button>
-                                                </div>
-                                            </div>
+                                                Remove
+                                            </button>
+
                                         </div>
                                     </div>
-                                    <div class="w-[328px] items-center justify-between -ml-px flex">
-                                        <div className="flex items-center border border-neutral-04 rounded mt-2 w-20 h-8 justify-between px-2 transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
-                                            <button className="text-black-900">
-                                                <img src="/Images/Minus.svg" alt="minus" />
-                                            </button>
-                                            <span className="text-xs font-InterSemiBold text-black/900">{item.quantity}</span>
-                                            <button className="text-black-900">
-                                                <img src="/Images/Add.svg" alt="add" />
-                                            </button>
+                                    <div className="grid grid-cols-3 items-center text-center">
+                                        <div className="flex justify-center">
+                                            <div className="flex items-center border border-neutral-04 rounded w-20 h-8 justify-between px-2 transition-all hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
+
+                                                <button>
+                                                    <img src="/Images/Minus.svg" alt="minus" />
+                                                </button>
+
+                                                <span className="text-xs font-InterSemiBold text-black-900">
+                                                    {item.quantity}
+                                                </span>
+
+                                                <button>
+                                                    <img src="/Images/Add.svg" alt="add" />
+                                                </button>
+
+                                            </div>
                                         </div>
-                                        <div
-                                            class="font-InterRegular text-black-900 text-lg leading-7.5 text-right tracking-[0] whitespace-nowrap transition-all hover:drop-shadow-custom"
-                                        >
+                                        <div className="font-InterRegular text-black-900 text-lg leading-7.5 whitespace-nowrap transition-all hover:drop-shadow-custom">
                                             ${item.price}
                                         </div>
-                                        <div
-                                            class="font-InterSemiBold text-black-900 text-lg leading-7.5 text-right tracking-[0] whitespace-nowrap transition-all hover:drop-shadow-custom"
-                                        >
+                                        <div className="font-InterSemiBold text-black-900 text-lg leading-7.5 whitespace-nowrap transition-all hover:drop-shadow-custom">
                                             $38.00
                                         </div>
                                     </div>
@@ -139,7 +131,7 @@ function ShoppingTable() {
                             ))}
                         </div>
                         <div
-                            class="flex flex-col w-[413px] items-start gap-4 p-6 bg-white rounded-md border border-solid border-neutral-04 transition-all hover:drop-shadow-custom"
+                            class="flex flex-col w-full max-w-[413px] items-start gap-4 p-6 bg-white rounded-md border border-solid border-neutral-04 transition-all hover:drop-shadow-custom"
                         >
                             <div
                                 class="font-PoppinsMedium self-stretch text-neutral-07 text-xl tracking-[0] leading-7 transition-all hover:drop-shadow-custom"
@@ -256,7 +248,7 @@ function ShoppingTable() {
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-col w-[424px] items-start gap-4">
+                    <div class="flex flex-col w-full max-w-[424px] items-start gap-4">
                         <div class="flex flex-col items-start gap-[7px] self-stretch w-full">
                             <div
                                 class="font-PoppinsMedium text-xl text-neutral-07 leading-7 tracking-[0] self-stretch transition-all hover:drop-shadow-custom"
@@ -270,7 +262,7 @@ function ShoppingTable() {
                             </p>
                         </div>
                         <form
-                            class="flex items-center justify-between w-[426px] h-[54px] px-4 py-0 border border-solid border-neutral-04"
+                            class="flex items-center justify-between w-full max-w-[426px] h-[54px] px-4 py-0 border border-solid border-neutral-04"
                         >
                             <div class="flex items-center gap-2 flex-1 grow">
                                 <img
