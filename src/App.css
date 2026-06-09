@@ -5,93 +5,128 @@
 @custom-variant dark (&:is(.dark *));
 
 @font-face {
-  font-family: 'Inter Regular';
+  font-family: "Inter Regular";
   src:
-    local('Inter Regular'),
-    local('Inter-Regular'),
-    url('/src/fonts/Inter_18pt-Regular.ttf') format('truetype');
+    local("Inter Regular"),
+    local("Inter-Regular"),
+    url("/src/fonts/Inter_18pt-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter Medium';
+  font-family: "Inter Medium";
   src:
-    local('Inter Medium'),
-    local('Inter-Medium'),
-    url('/src/fonts/Inter_18pt-Medium.ttf') format('truetype');
+    local("Inter Medium"),
+    local("Inter-Medium"),
+    url("/src/fonts/Inter_18pt-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter SemiBold';
+  font-family: "Inter SemiBold";
   src:
-    local('Inter SemiBold'),
-    local('Inter-SemiBold'),
-    url('/src/fonts/Inter_18pt-SemiBold.ttf') format('truetype');
+    local("Inter SemiBold"),
+    local("Inter-SemiBold"),
+    url("/src/fonts/Inter_18pt-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter Bold';
+  font-family: "Inter Bold";
   src:
-    local('Inter Bold'),
-    local('Inter-Bold'),
-    url('/src/fonts/Inter_18pt-Bold.ttf') format('truetype');
+    local("Inter Bold"),
+    local("Inter-Bold"),
+    url("/src/fonts/Inter_18pt-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter Italic';
+  font-family: "Inter Italic";
   src:
-    local('Inter Italic'),
-    local('Inter-Italic'),
-    url('/src/fonts/Inter_18pt-Italic.ttf') format('truetype');
+    local("Inter Italic"),
+    local("Inter-Italic"),
+    url("/src/fonts/Inter_18pt-Italic.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Poppins Medium';
+  font-family: "Poppins Medium";
   src:
-    local('Poppins Medium'),
-    local('Poppins-Medium'),
-    url('/src/fonts/Poppins-Medium.ttf') format('truetype');
+    local("Poppins Medium"),
+    local("Poppins-Medium"),
+    url("/src/fonts/Poppins-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
-@theme {
+@font-face {
+  font-family: "Vazir Regular";
+  src:
+    local("Vazir Regular"),
+    local("Vazir-Regular"),
+    url("/src/fonts/Vazir.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: "Vazir Medium";
+  src:
+    local("Vazir Medium"),
+    local("Vazir-Medium"),
+    url("/src/fonts/Vazir-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazir Bold";
+  src:
+    local("Vazir Bold"),
+    local("Vazir-Bold"),
+    url("/src/fonts/Vazir-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
   --color-primary-color: #000000;
-  --color-secondary-color-blue: #377DFF;
-  --color-secondary-color-green: #38CB89;
-  --color-secondary-color-orange: #FFAB00;
-  --color-secondary-color-red: #FF5630;
-  --color-neutral-01: #FEFEFE;
-  --color-neutral-02: #F3F5F7;
-  --color-neutral-03: #E8ECEF;
-  --color-neutral-04: #6C7275;
+  --color-secondary-color-blue: #2F6BFF;
+  --color-secondary-color-green: #38cb89;
+  --color-secondary-color-orange: #ffab00;
+  --color-secondary-color-red: #EF4444;
+  --color-neutral-01: #F7F9FD;
+  --color-neutral-02: #ECEFF5;
+  --color-neutral-03: #e8ecef;
+  --color-neutral-04: #6c7275;
   --color-neutral-05: #343839;
   --color-neutral-06: #232627;
   --color-neutral-07: #141718;
   --color-black-900: #121212;
-
+  --color-main: #2d397e;
   --font-InterRegular: "Inter Regular";
   --font-InterMedium: "Inter Medium";
   --font-InterSemiBold: "Inter SemiBold";
   --font-InterBold: "Inter Bold";
   --font-InterItalic: "Inter Italic";
   --font-PoppinsMedium: "Poppins Medium";
+  --font-VazirRegular: "Vazir Regular";
+  --font-VazirMedium: "Vazir Medium";
+  --font-VazirBold: "Vazir Bold";
 
   --text-headline-5: 34px;
   --text-4.5xl: 40px;
@@ -105,28 +140,28 @@
   --tracking-headline-6: -0.02143em;
   --tracking-headline-7: -0.01em;
   --tracking-button-m: -0.02222em;
-  --tracking-button-s: -0.025em; 
+  --tracking-button-s: -0.025em;
 
-  --drop-shadow-custom: 0 4px 4px rgba(0,0,0,0.25);
+  --drop-shadow-custom: 0 4px 4px rgba(0, 0, 0, 0.25);
 
   --breakPoint-xs: 480px;
 }
 
-@utility container {
-  @apply mx-auto px-8 lg:px-40 box-border;
-}
-
 .scrollbar-custom::-webkit-scrollbar {
-  width: 6px; /* باریک‌تر کردن اسکرول */
+  width: 6px;
+  /* باریک‌تر کردن اسکرول */
 }
 
 .scrollbar-custom::-webkit-scrollbar-track {
-  background: transparent; /* زمینه */
+  background: transparent;
+  /* زمینه */
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb {
-  background-color: rgba(0,0,0,0.3); /* رنگ اسکرول */
-  border-radius: 9999px; /* گرد کردن */
+  background-color: rgba(0, 0, 0, 0.3);
+  /* رنگ اسکرول */
+  border-radius: 9999px;
+  /* گرد کردن */
 }
 
 /* پیکان‌های بالا و پایین را حذف کن */
@@ -135,13 +170,27 @@
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb {
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   border-radius: 9999px;
   transition: background-color 0.3s ease;
 }
 
 .scrollbar-custom:hover::-webkit-scrollbar-thumb {
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.style-module_starRatingWrap__q-lJC {
+  display: inline-flex !important;
+  white-space: nowrap !important;
+}
+
+.react-simple-star-rating span {
+  display: inline-flex !important;
+  flex-wrap: nowrap !important;
+}
+
+.react-simple-star-rating svg {
+  display: inline-block !important;
 }
 
 @theme inline {
@@ -258,6 +307,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

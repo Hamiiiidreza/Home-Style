@@ -1,0 +1,60 @@
+import React from 'react'
+import Topbar from '../../components/modules/topbar/topbar';
+import Navbar from '../../components/modules/navbar/navbar';
+import PageHierarchy from '../../components/modules/Page-Hierarchy/page-hierarchy';
+import SaleBanner from '../../components/modules/sale-banner/sale-banner';
+import ServicesSection from '../../components/modules/services-section/services-section';
+import Footer from '../../components/modules/footer/footer';
+
+function AboutUs() {
+    return (
+        < >
+            <Topbar />
+            <div className='px-3 sm:!px-8 xl:!px-40'>
+                <Navbar />
+                <PageHierarchy
+                    items={[
+                        "خانه",
+                        "درباره ما",
+                    ]}
+                />
+                <div className="container flex flex-col w-full items-start gap-6 mt-10 mb-12">
+                    <h1
+                        className="max-w-[834px] font-VazirMedium text-neutral-07 text-[28px] md:text-[54px] tracking-headline-6 md:tracking-headline-3 leading-8.5 md:leading-14.5 transition-all hover:drop-shadow-custom"
+                    >
+                        ما به دکوراسیون پایدار باور داریم و به زندگی در خانه علاقه‌مندیم.
+                    </h1>
+                    <p
+                        className="max-w-[834px] font-VazirRegular text-neutral-07 text-base tracking-[0] leading-6.5 transition-all hover:drop-shadow-custom"
+                    >
+                        محصولات ما شامل مبلمان ماندگار با پارچه‌های طبیعی، خطوط منحنی، آینه‌های متعدد و طراحی کلاسیک است
+                        که می‌تواند در هر پروژه دکوراسیونی استفاده شود. این قطعات با سادگی و اصالت خود
+                        برای ماندگاری در نسل‌ها طراحی شده‌اند و در عین وفاداری به سبک‌های هر دوره،
+                        لمس ظریفی از طراحی مدرن را نیز در خود دارند.
+                    </p>
+                </div>
+                <SaleBanner
+                    withContainer
+                    showSaleText={false}
+                    title="درباره ما"
+                    description={
+                        <>
+                            فروشگاه 3legant یک فروشگاه هدیه و دکوراسیون در شهر هوشی‌مین
+                            <br /> ویتنام است.<br />
+                            فعالیت ما از سال 2019 آغاز شده است.<br />
+                            تیم پشتیبانی ما به صورت 24 ساعته در 7 روز هفته آماده کمک به شماست.
+                        </>
+                    }
+                    descriptionClass='text-base leading-6.5'
+                />
+                <ServicesSection
+                    withBackground
+                    withPaddingBottom={false}
+                />
+                <Footer />
+            </div>
+        </>
+    )
+}
+
+export default AboutUs;
