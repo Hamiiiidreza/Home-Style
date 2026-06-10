@@ -20,6 +20,9 @@ import Wishlist from "./pages/UserPanel/wishlist/Wishlist";
 import Tickets from "./pages/UserPanel/tickets/tickets";
 import UserAccount from "./pages/UserPanel/user-account/user-account";
 
+import AdminPanel from "./pages/AdminPanel/Index";
+import AdminDashboard from "./pages/AdminPanel/Index/admin-dashboard";
+
 const routes = [
     { path: '/', element: <Home /> },
     { path: '/Shop', element: <Shop /> },
@@ -37,12 +40,20 @@ const routes = [
         children: [
             { index: true, element: <Navigate to="dashboard" replace /> },
             { path: "dashboard", element: <Dashboard /> },
-            { path: "dashboard", element: <Dashboard /> },
             { path: "address", element: <Address /> },
             { path: "orders", element: <Orders /> },
             { path: "wishlist", element: <Wishlist /> },
             { path: "tickets", element: <Tickets /> },
             { path: "user-account", element: <UserAccount /> },
+        ]
+    },
+    {
+        path: '/p-admin',
+        element: <AdminPanel />,
+        children: [
+            { index: true, element: <Navigate to="dashboard" replace /> },
+            { path: "dashboard", element: <AdminDashboard /> },
+            
         ]
     },
 ]
