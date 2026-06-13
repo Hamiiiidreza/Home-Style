@@ -29,7 +29,7 @@ const items: SidebarItem[] = [
     {
         id: "products",
         label: "محصولات",
-        to: "",
+        to: "/p-admin/admin-product",
         icon: Sofa,
     },
     {
