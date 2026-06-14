@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Eye, Edit, MoreVertical, Plus, Sofa, FunnelPlus } from 'lucide-react';
 import CustomInput from '../../../components/ui/custom-input';
+import CustomPagination from '../../../components/ui/custom-pagination';
 
 type ProductStatus = 'موجود' | 'کم موجود' | 'ناموجود';
 
@@ -72,6 +73,12 @@ const products: Product[] = [
 ];
 
 const ProductManagement: React.FC = () => {
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const totalProducts = 75;
+  const totalPages = Math.ceil(totalProducts / itemsPerPage);
+
   return (
     <section className="w-full bg-white rounded-md shadow-lg my-10 p-6 border transition-all hover:drop-shadow-custom">
       {/* Header Section */}
@@ -172,6 +179,15 @@ const ProductManagement: React.FC = () => {
           </tbody>
         </table>
       </div>
+      <CustomPagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+        totalItems={totalProducts}
+        itemsPerPage={itemsPerPage}
+        onItemsPerPageChange={setItemsPerPage}
+        label="محصول"
+      />
     </section>
   );
 };
