@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Eye, Edit, MoreVertical, Plus, Sofa, FunnelPlus } from 'lucide-react';
 import CustomInput from '../../../components/ui/custom-input';
 import CustomPagination from '../../../components/ui/custom-pagination';
+import { useNavigate } from "react-router-dom";
+
 
 type ProductStatus = 'موجود' | 'کم موجود' | 'ناموجود';
 
@@ -79,6 +81,8 @@ const ProductManagement: React.FC = () => {
   const totalProducts = 75;
   const totalPages = Math.ceil(totalProducts / itemsPerPage);
 
+  const navigate = useNavigate();
+
   return (
     <section className="w-full bg-white rounded-md shadow-lg my-10 p-6 border transition-all hover:drop-shadow-custom">
       {/* Header Section */}
@@ -109,7 +113,10 @@ const ProductManagement: React.FC = () => {
             فیلتر
           </button>
         </div>
-        <button className="px-4 py-3 rounded-md flex items-center gap-2 bg-main text-white border--main transition-colors hover:bg-main/90 cursor-pointer">
+        <button
+          onClick={() => navigate("/p-admin/add-product")}
+          className="px-4 py-3 rounded-md flex items-center gap-2 bg-main text-white border--main transition-colors hover:bg-main/90 cursor-pointer"
+        >
           <Plus size={18} />
           افزودن محصول جدید
         </button>
