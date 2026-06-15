@@ -23,6 +23,7 @@ import UserAccount from "./pages/UserPanel/user-account/user-account";
 import AdminPanel from "./pages/AdminPanel/Index";
 import AdminDashboard from "./pages/AdminPanel/Index/admin-dashboard";
 import ProductManagement from "./pages/AdminPanel/product-management/product-management";
+import AddProduct from "./pages/AdminPanel/product-management/AddProduct";
 
 const routes = [
     { path: '/', element: <Home /> },
@@ -55,7 +56,7 @@ const routes = [
             { index: true, element: <Navigate to="dashboard" replace /> },
             { path: "dashboard", element: <AdminDashboard /> },
             { path: "admin-product", element: <ProductManagement /> },
-            
+            { path: "add-product", element: <AddProduct /> },
         ]
     },
 ]
