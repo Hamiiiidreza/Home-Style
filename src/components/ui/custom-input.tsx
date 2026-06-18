@@ -53,6 +53,13 @@ const CustomInput: React.FC<CustomInputProps> = ({
     const displayValue =
         value !== undefined && digits === "fa" ? toFaDigits(value) : value;
 
+    const {
+        onChange: registerOnChange,
+        onBlur: registerOnBlur,
+        name: registerName,
+        ref: registerRef,
+    } = register || {};
+
     return (
         <div className={`flex flex-col gap-2 ${wrapperClassName} ${className}`}>
             {label && (
@@ -69,16 +76,20 @@ const CustomInput: React.FC<CustomInputProps> = ({
                 )}
 
                 <Input
-                    {...(register || {})}
                     id={id}
-                    name={name}
+                    name={name ?? registerName}
                     type={type}
                     value={displayValue !== undefined ? displayValue : undefined}
                     defaultValue={defaultValue}
                     placeholder={placeholder}
                     readOnly={readOnly}
                     dir={dir}
-                    onChange={onChange}
+                    ref={registerRef}
+                    onBlur={registerOnBlur}
+                    onChange={(e) => {
+                        registerOnChange?.(e);
+                        onChange?.(e);
+                    }}
                     className={inputClassName}
                 />
 
