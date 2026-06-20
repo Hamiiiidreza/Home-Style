@@ -115,7 +115,7 @@ const AddProduct: React.FC = () => {
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="bg-white rounded-2xl p-10 shadow-sm border max-w-5xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pb-5 border-b">
                         {/* Right Column */}
                         <div className="space-y-6 order-2 lg:order-1">
                             {/* Name */}
@@ -137,7 +137,7 @@ const AddProduct: React.FC = () => {
 
                             {/* Category */}
                             <div>
-                                <label className="block text-sm mb-2">
+                                <label className="block font-VazirMedium text-sm mb-2 text-neutral-07">
                                     دسته‌بندی *
                                 </label>
 
@@ -150,16 +150,16 @@ const AddProduct: React.FC = () => {
                                             onValueChange={field.onChange}
                                         >
                                             <SelectTrigger
-                                                className={`w-full px-3 py-5.5 border rounded-md ${errors.category ? "border-red-500" : ""
+                                                className={`w-full px-3 py-5.5 border rounded-md flex flex-row-reverse ${errors.category ? "border-red-500" : ""
                                                     }`}
                                             >
                                                 <SelectValue placeholder="انتخاب دسته‌بندی" />
                                             </SelectTrigger>
 
-                                            <SelectContent>
-                                                <SelectItem value="necklace">گردنبند</SelectItem>
-                                                <SelectItem value="bracelet">دستبند</SelectItem>
-                                                <SelectItem value="earring">گوشواره</SelectItem>
+                                            <SelectContent className='font-VazirMedium text-sm' dir="rtl">
+                                                <SelectItem value="necklace">اتاق نشیمن</SelectItem>
+                                                <SelectItem value="bracelet">اتاق خواب</SelectItem>
+                                                <SelectItem value="earring">آشپزخانه</SelectItem>
                                             </SelectContent>
                                         </Select>
                                     )}
@@ -195,14 +195,20 @@ const AddProduct: React.FC = () => {
 
                         {/* Image Upload */}
                         <div className="order-1 lg:order-2">
-                            <label className="block text-sm mb-2">
+                            <label className="block font-VazirMedium text-sm mb-2 text-neutral-07">
                                 تصویر محصول
                             </label>
 
-                            <div className="border-2 border-dashed border-gray-200 rounded-3xl p-8 bg-[#fdfbf7] flex flex-col items-center justify-center cursor-pointer hover:bg-gray-50 transition-all min-h-[250px]">
+                            <div className="border-2 border-dashed border-gray-200 rounded-md p-8 bg-[#F3F6FC] flex flex-col items-center justify-center cursor-pointer hover:bg-gray-50 transition-all min-h-[250px]">
                                 <Camera className="text-gray-400" size={32} />
-                                <p className="text-sm font-bold text-gray-800 mt-4">
+                                <p className="text-sm font-VazirBold text-gray-800 mt-4">
                                     برای آپلود تصویر کلیک کنید
+                                </p>
+                                <p className="text-sm font-VazirMedium font-base text-gray-500 mt-4">
+                                    یا تصویر را بکشید و رها کنید
+                                </p>
+                                <p className="text-sm font-VazirMedium font-base text-gray-500 mt-4">
+                                    فرمت های مجاز: PNG, JPG
                                 </p>
                             </div>
 
@@ -210,25 +216,18 @@ const AddProduct: React.FC = () => {
                                 {[1, 2, 3, 4].map((i) => (
                                     <div
                                         key={i}
-                                        className="aspect-square border border-gray-200 rounded-xl flex items-center justify-center bg-[#f9f9f9] border-dashed cursor-pointer hover:border-[#b08953] transition-all"
+                                        className="aspect-square border border-gray-200 rounded-md flex items-center justify-center bg-[#F3F6FC] border-dashed cursor-pointer hover:border-secondary-color-blue transition-all"
                                     >
-                                        <Plus size={20} className="text-gray-300" />
+                                        <Plus size={20} className="text-main" />
                                     </div>
                                 ))}
                             </div>
+                            <p className="flex justify-center font-VazirMedium text-sm text-gray-400 mt-4">تصویر اصلی در نتایج و صفحه محصول نمایش داده خواهد شد.</p>
                         </div>
                     </div>
 
                     {/* Discount */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10 items-center">
-                        <div className="flex items-center gap-4">
-                            <span className="text-sm">تخفیف دارد؟</span>
-
-                            <input
-                                type="checkbox"
-                                {...register("hasDiscount")}
-                            />
-                        </div>
 
                         <div>
                             <CustomInput
@@ -239,9 +238,9 @@ const AddProduct: React.FC = () => {
                                 readOnly={!hasDiscount}
                                 leftElement={<span>%</span>}
                                 wrapperClassName="w-full"
-                                inputClassName={`w-full p-3 border rounded-xl ${!hasDiscount
+                                inputClassName={`w-full font-vazirMedium px-3 py-5.5 border rounded-md ${!hasDiscount
                                     ? "opacity-50"
-                                    : "focus:ring-2 focus:ring-[#b08953]/20 focus:border-[#b08953]"
+                                    : ""
                                     } ${errors.discount ? "border-red-500" : "border-gray-200"}`}
                             />
 
@@ -251,11 +250,30 @@ const AddProduct: React.FC = () => {
                                 </p>
                             )}
                         </div>
+
+                        <div className="flex items-center gap-4">
+                            <span className="font-VazirRegular text-sm">تخفیف دارد؟</span>
+
+                            <label className="relative inline-flex items-center cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    {...register("hasDiscount")}
+                                    className="sr-only peer"
+                                />
+                                <div className="w-11 h-6 bg-gray-200 rounded-full 
+                                               peer-checked:bg-main transition-colors
+                                               after:content-[''] after:absolute after:top-0.5 after:right-[2px]
+                                               after:bg-white after:border after:rounded-full after:h-5 after:w-5
+                                               after:transition-all peer-checked:after:-translate-x-5">
+                                </div>
+                            </label>
+                        </div>
+
                     </div>
 
                     {/* Description */}
                     <div className="mt-8 relative">
-                        <label className="block text-sm mb-2">
+                        <label className="block font-VazirMedium text-sm mb-2 text-neutral-07">
                             توضیحات محصول
                         </label>
 
@@ -264,26 +282,26 @@ const AddProduct: React.FC = () => {
                             rows={5}
                             maxLength={500}
                             placeholder="توضیحات محصول را وارد کنید..."
-                            className="w-full p-4 bg-[#f9f9f9] border border-gray-200 rounded-2xl outline-none resize-none"
+                            className="w-full p-4 bg-white border border-gray-200 rounded-md outline-none resize-none"
                         />
 
-                        <span className="absolute bottom-4 right-4 text-[10px] text-gray-400">
-                            {description.length} / ۵۰۰
+                        <span className="absolute bottom-4 left-4 text-[10px] text-gray-400">
+                            ۵۰۰ / {description.length}
                         </span>
                     </div>
 
                     {/* Buttons */}
-                    <div className="flex gap-4 mt-12">
+                    <div className="flex items-center justify-center gap-10 mt-12">
                         <button
                             type="submit"
-                            className="flex-1 py-3 bg-[#b08953] text-white rounded-xl font-bold hover:bg-[#967344] transition-all shadow-md"
+                            className="w-40 font-VazirBold py-3 bg-main text-white rounded-md font-bold hover:bg-main/90 transition-all shadow-md cursor-pointer"
                         >
                             ثبت محصول
                         </button>
 
                         <button
                             type="button"
-                            className="flex-1 py-3 bg-white border border-gray-200 text-gray-600 rounded-xl font-bold hover:bg-gray-50 transition-all"
+                            className="w-40 font-VazirBold py-3 bg-white text-neutral-07 border rounded-md font-bold hover:bg-main hover:text-white transition-all shadow-md cursor-pointer"
                         >
                             انصراف
                         </button>
