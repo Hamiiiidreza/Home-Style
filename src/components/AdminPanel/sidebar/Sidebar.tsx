@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import {
     LayoutDashboard,
     Sofa,
@@ -33,13 +33,13 @@ const items: SidebarItem[] = [
         icon: Sofa,
     },
     {
-        id: "products",
+        id: "users",
         label: "کاربران",
         to: "",
         icon: Users,
     },
     {
-        id: "products",
+        id: "articles",
         label: "مقالات",
         to: "",
         icon: Newspaper,
@@ -74,25 +74,38 @@ const Sidebar: React.FC = () => {
         <nav className="space-y-1 mt-3">
             {items.map((item) => {
                 const Icon = item.icon;
-                const isActive = item.to && pathname === item.to;
-
-                const wrapperClass = `${baseClass} ${isActive ? activeClass : inactiveClass
-                    }`;
-
-                const iconClass = isActive
-                    ? "text-secondary-color-blue"
-                    : "text-neutral-04";
-
-                const textClass = isActive
-                    ? "font-VazirMedium text-sm text-secondary-color-blue"
-                    : "font-VazirMedium text-sm text-neutral-07";
 
                 if (item.to) {
                     return (
-                        <Link key={item.id} to={item.to} className={wrapperClass}>
-                            <Icon size={18} className={iconClass} />
-                            <span className={textClass}>{item.label}</span>
-                        </Link>
+                        <NavLink
+                            key={item.id}
+                            to={item.to}
+                            className={({ isActive }) =>
+                                `${baseClass} ${isActive ? activeClass : inactiveClass}`
+                            }
+                        >
+                            {({ isActive }) => (
+                                <>
+                                    <Icon
+                                        size={18}
+                                        className={
+                                            isActive
+                                                ? "text-secondary-color-blue"
+                                                : "text-neutral-04"
+                                        }
+                                    />
+                                    <span
+                                        className={
+                                            isActive
+                                                ? "font-VazirMedium text-sm text-secondary-color-blue"
+                                                : "font-VazirMedium text-sm text-neutral-07"
+                                        }
+                                    >
+                                        {item.label}
+                                    </span>
+                                </>
+                            )}
+                        </NavLink>
                     );
                 }
 
@@ -101,10 +114,12 @@ const Sidebar: React.FC = () => {
                         key={item.id}
                         type="button"
                         onClick={item.onClick}
-                        className={`${wrapperClass} w-full text-right`}
+                        className={`${baseClass} ${inactiveClass} w-full text-right`}
                     >
-                        <Icon size={18} className={iconClass} />
-                        <span className={textClass}>{item.label}</span>
+                        <Icon size={18} className="text-neutral-04" />
+                        <span className="font-VazirMedium text-sm text-neutral-07">
+                            {item.label}
+                        </span>
                     </button>
                 );
             })}
