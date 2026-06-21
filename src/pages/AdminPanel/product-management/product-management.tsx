@@ -114,7 +114,7 @@ const ProductManagement: React.FC = () => {
           </button>
         </div>
         <button
-          onClick={() => navigate("/p-admin/add-product")}
+          onClick={() => navigate("/p-admin/admin-product/add")}
           className="px-4 py-3 rounded-md flex items-center gap-2 bg-main text-white border--main transition-colors hover:bg-main/90 cursor-pointer"
         >
           <Plus size={18} />
@@ -172,6 +172,7 @@ const ProductManagement: React.FC = () => {
                       className="cursor-pointer text-secondary-color-blue hover:text-gray-600"
                     />
                     <Edit
+                      onClick={() => navigate("/p-admin/admin-product/edit")}
                       size={18}
                       className="cursor-pointer text-secondary-color-blue hover:text-gray-600"
                     />
