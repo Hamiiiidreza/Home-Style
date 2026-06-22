@@ -25,6 +25,7 @@ import AdminDashboard from "./pages/AdminPanel/Index/admin-dashboard";
 import ProductManagement from "./pages/AdminPanel/product-management/product-management";
 import AddProduct from "./pages/AdminPanel/product-management/AddProduct";
 import EditProduct from "./pages/AdminPanel/product-management/EditProduct";
+import UserManagement from "./pages/AdminPanel/user-management/user-management";
 
 const routes = [
     { path: '/', element: <Home /> },
@@ -64,6 +65,7 @@ const routes = [
                     { path: "edit", element: <EditProduct /> },
                 ]
             },
+            { path: "admin-users", element: <UserManagement /> },
         ]
     },
 ]
