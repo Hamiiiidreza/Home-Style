@@ -35,7 +35,7 @@ const items: SidebarItem[] = [
     {
         id: "users",
         label: "کاربران",
-        to: "",
+        to: "/p-admin/admin-users",
         icon: Users,
     },
     {
