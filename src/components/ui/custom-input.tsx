@@ -19,6 +19,7 @@ type CustomInputProps = {
     wrapperClassName?: string;
     labelClassName?: string;
     inputClassName?: string;
+    placeholderClassName?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     register?: any;
     showEditIcon?: boolean;
@@ -42,6 +43,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
     wrapperClassName = "",
     labelClassName = "font-VazirMedium text-sm text-gray-900",
     inputClassName = "font-VazirMedium text-sm h-12 pr-12 pl-10 text-right",
+    placeholderClassName = "placeholder:text-neutral-04 placeholder:text-sm placeholder:font-VazirMedium",
     onChange,
     register,
     showEditIcon = false,
@@ -90,7 +92,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
                         registerOnChange?.(e);
                         onChange?.(e);
                     }}
-                    className={inputClassName}
+                     className={`${inputClassName} ${placeholderClassName}`}
                 />
 
                 {leftElement && (
