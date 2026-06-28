@@ -5,6 +5,8 @@ import * as z from "zod";
 import { Camera, ChevronLeft, Plus } from "lucide-react";
 import PageHierarchy from "../../../components/modules/Page-Hierarchy/page-hierarchy";
 import CustomInput from "../../../components/ui/custom-input";
+import { ProductDetail } from "../../../types/productDetail.types";
+import ProductFeatures from "../../../components/AdminPanel/products/product-features";
 
 import {
     Select,
@@ -74,36 +76,15 @@ const AddProduct: React.FC = () => {
     const hasDiscount = watch("hasDiscount");
     const description = watch("description") || "";
 
-    // ویژگی‌ها
-    const [detailTitle, setDetailTitle] = useState("");
-    const [detailValue, setDetailValue] = useState("");
-    const [productDetails, setProductDetails] = useState<
-        { id: number; title: string; value: string }[]
-    >([]);
-
-    // افزودن ویژگی جدید
-    const addDetail = () => {
-        if (detailTitle && detailValue) {
-            const newDetail = {
-                id: Date.now(),
-                title: detailTitle,
-                value: detailValue,
-            };
-            setProductDetails([...productDetails, newDetail]);
-            setDetailTitle("");
-            setDetailValue("");
-        }
-    };
-
-    const removeDetail = (id: number) => {
-        setProductDetails(productDetails.filter((item) => item.id !== id));
-    };
+    const [productDetails, setProductDetails] = useState<ProductDetail[]>([]);
 
     const onSubmit: SubmitHandler<ProductFormValues> = (data) => {
-        const finalData = { ...data, details: productDetails };
-        console.log("Product Data with Details:", finalData);
-        reset();
-        setProductDetails([]);
+        const finalData = {
+            ...data,
+            details: productDetails,
+        };
+
+        console.log("Product Data:", finalData);
     };
 
 
@@ -285,74 +266,23 @@ const AddProduct: React.FC = () => {
                     </div>
 
                     {/* ---------------- Features ---------------- */}
-                    <div className="mt-10 p-6 bg-gray-50 rounded-md border transition-all hover:drop-shadow-custom">
-                        <h3 className="font-VazirBold text-gray-700 mb-4">افزودن ویژگی‌ها (مثال: رنگ، سایز)</h3>
-
-                        <div className="flex gap-4 items-end">
-                            <div className="flex-1">
-                                <CustomInput
-                                    label="عنوان ویژگی"
-                                    placeholder="مثال: رنگ"
-                                    value={detailTitle}
-                                    onChange={(e) => setDetailTitle(e.target.value)}
-                                    wrapperClassName="w-full"
-                                    inputClassName="w-full px-3 py-5.5 border rounded-md"
-                                />
-                            </div>
-                            <div className="flex-1">
-                                <CustomInput
-                                    label="مقدار"
-                                    placeholder="مثال: قهوه‌ای"
-                                    value={detailValue}
-                                    onChange={(e) => setDetailValue(e.target.value)}
-                                    wrapperClassName="w-full"
-                                    inputClassName="w-full px-3 py-5.5 border rounded-md"
-                                />
-                            </div>
-
-                            <button
-                                type="button"
-                                onClick={addDetail}
-                                className="bg-main text-white px-6 py-3 rounded-md hover:bg-main/90 transition-all cursor-pointer"
-                            >
-                                <Plus size={20} />
-                            </button>
-                        </div>
-                        <div className="mt-6 space-y-2">
-                            {productDetails.map((item) => (
-                                <div
-                                    key={item.id}
-                                    className="flex items-center justify-between p-3 bg-white border rounded-md shadow-sm"
-                                >
-                                    <div className="flex gap-2">
-                                        <span className="font-VazirBold text-sm text-gray-600">{item.title}:</span>
-                                        <span className="text-sm text-gray-500">{item.value}</span>
-                                    </div>
-
-                                    <button
-                                        type="button"
-                                        onClick={() => removeDetail(item.id)}
-                                        className="text-red-500 hover:text-red-700 text-xs"
-                                    >
-                                        حذف
-                                    </button>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    <ProductFeatures
+                        value={productDetails}
+                        onChange={setProductDetails}
+                    />
 
                     {/* Buttons */}
                     <div className="flex items-center justify-center gap-10 mt-12">
                         <button
                             type="submit"
-                            className="w-40 py-3 bg-main text-white rounded-md hover:bg-main/90 transition-all shadow-md cursor-pointer"
+                            className="font-VazirBold w-40 py-3 bg-main text-white rounded-md hover:bg-main/90 transition-all shadow-md cursor-pointer"
                         >
                             ثبت محصول
                         </button>
 
                         <button
                             type="button"
-                            className="w-40 py-3 bg-white text-neutral-07 border rounded-md hover:bg-main hover:text-white transition-all shadow-md cursor-pointer"
+                            className="font-VazirBold w-40 py-3 bg-white text-neutral-07 border rounded-md hover:bg-main hover:text-white transition-all shadow-md cursor-pointer"
                         >
                             انصراف
                         </button>

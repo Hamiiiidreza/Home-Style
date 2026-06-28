@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Camera, ChevronLeft, Plus, Sofa, CircleDollarSign } from "lucide-react";
+import {
+    Camera,
+    ChevronLeft,
+    Plus,
+    Sofa,
+    CircleDollarSign,
+} from "lucide-react";
 import PageHierarchy from "../../../components/modules/Page-Hierarchy/page-hierarchy";
 import CustomInput from "../../../components/ui/custom-input";
+import { ProductDetail } from "../../../types/productDetail.types";
+import ProductFeatures from "../../../components/AdminPanel/products/product-features";
 import {
     Select,
     SelectContent,
@@ -79,9 +87,21 @@ const EditProduct: React.FC = () => {
     const hasDiscount = watch("hasDiscount");
     const description = watch("description") || "";
 
+    const [productDetails, setProductDetails] = useState<ProductDetail[]>([
+        { id: 1, title: "رنگ", value: "طوسی" },
+        { id: 2, title: "جنس پارچه", value: "مخمل" },
+        { id: 3, title: "ظرفیت", value: "۵ نفره" },
+    ]);
+
     const onSubmit: SubmitHandler<ProductFormValues> = (data) => {
-        console.log("Updated Product Data:", data);
+        const finalData = {
+            ...data,
+            details: productDetails,
+        };
+
+        console.log("Updated Product:", finalData);
     };
+
 
     return (
         <div className="w-full bg-white rounded-md shadow-lg my-10 p-6 border transition-all hover:drop-shadow-custom">
@@ -184,6 +204,7 @@ const EditProduct: React.FC = () => {
                                     </p>
                                 )}
                             </div>
+
                             {/* Discount */}
                             <div className="flex items-center justify-between mt-10">
                                 <div>
@@ -217,10 +238,10 @@ const EditProduct: React.FC = () => {
                                         />
                                         <div
                                             className="w-11 h-6 bg-gray-200 rounded-full 
-                                    peer-checked:bg-main transition-colors
-                                    after:content-[''] after:absolute after:top-0.5 after:right-[2px]
-                                    after:bg-white after:border after:rounded-full after:h-5 after:w-5
-                                    after:transition-all peer-checked:after:-translate-x-5"
+                                            peer-checked:bg-main transition-colors
+                                            after:content-[''] after:absolute after:top-0.5 after:right-[2px]
+                                            after:bg-white after:border after:rounded-full after:h-5 after:w-5
+                                            after:transition-all peer-checked:after:-translate-x-5"
                                         />
                                     </label>
                                 </div>
@@ -291,6 +312,12 @@ const EditProduct: React.FC = () => {
                             ۵۰۰ / {description.length}
                         </span>
                     </div>
+
+                    {/* ---------------- Features ---------------- */}
+                    <ProductFeatures
+                        value={productDetails}
+                        onChange={setProductDetails}
+                    />
 
                     {/* Buttons */}
                     <div className="flex items-center justify-center gap-10 mt-12">
