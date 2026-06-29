@@ -41,7 +41,7 @@ const items: SidebarItem[] = [
     {
         id: "articles",
         label: "مقالات",
-        to: "",
+        to: "/p-admin/admin-articles",
         icon: Newspaper,
     },
     {

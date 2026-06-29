@@ -26,6 +26,7 @@ import ProductManagement from "./pages/AdminPanel/product-management/product-man
 import AddProduct from "./pages/AdminPanel/product-management/AddProduct";
 import EditProduct from "./pages/AdminPanel/product-management/EditProduct";
 import UserManagement from "./pages/AdminPanel/user-management/user-management";
+import ArticleManagement from "./pages/AdminPanel/article-management/article-management";
 
 const routes = [
     { path: '/', element: <Home /> },
@@ -66,6 +67,7 @@ const routes = [
                 ]
             },
             { path: "admin-users", element: <UserManagement /> },
+            { path: "admin-articles", element: <ArticleManagement /> },
         ]
     },
 ]
