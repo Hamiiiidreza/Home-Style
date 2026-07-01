@@ -130,7 +130,7 @@ const ArticleManagement: React.FC = () => {
                     </button>
                 </div>
                 <button
-                    onClick={() => navigate("/p-admin/admin-article/add")}
+                    onClick={() => navigate("/p-admin/admin-articles/add")}
                     className="px-4 py-3 rounded-md flex items-center gap-2 bg-main text-white border--main transition-colors hover:bg-main/90 cursor-pointer"
                 >
                     <Plus size={18} />
