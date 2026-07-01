@@ -4,13 +4,14 @@ import { Edit2 } from "lucide-react";
 
 type CustomInputProps = {
     label?: string;
+    labelIcon?: React.ReactNode; 
     value?: string | number;
     defaultValue?: string | number;
     placeholder?: string;
     type?: string;
     id?: string;
     name?: string;
-    icon?: React.ReactNode;
+    icon?: React.ReactNode; 
     leftElement?: React.ReactNode;
     digits?: "fa" | "en";
     dir?: "rtl" | "ltr";
@@ -28,6 +29,7 @@ type CustomInputProps = {
 
 const CustomInput: React.FC<CustomInputProps> = ({
     label,
+    labelIcon,
     value,
     defaultValue,
     placeholder,
@@ -43,7 +45,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
     wrapperClassName = "",
     labelClassName = "font-VazirMedium text-sm text-gray-900",
     inputClassName = "font-VazirMedium text-sm h-12 pr-12 pl-10 text-right",
-    placeholderClassName = "placeholder:text-neutral-04 placeholder:text-sm placeholder:font-VazirMedium",
+    placeholderClassName = "placeholder:text-neutral-04 placeholder:text-xs placeholder:font-VazirMedium",
     onChange,
     register,
     showEditIcon = false,
@@ -65,8 +67,12 @@ const CustomInput: React.FC<CustomInputProps> = ({
     return (
         <div className={`flex flex-col gap-2 ${wrapperClassName} ${className}`}>
             {label && (
-                <label className={labelClassName} htmlFor={id}>
-                    {label}
+                <label
+                    className={`${labelIcon ? "flex items-center gap-2" : ""} ${labelClassName}`}
+                    htmlFor={id}
+                >
+                    {labelIcon}
+                    <span>{label}</span>
                 </label>
             )}
 
@@ -92,7 +98,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
                         registerOnChange?.(e);
                         onChange?.(e);
                     }}
-                     className={`${inputClassName} ${placeholderClassName}`}
+                    className={`${inputClassName} ${placeholderClassName}`}
                 />
 
                 {leftElement && (
