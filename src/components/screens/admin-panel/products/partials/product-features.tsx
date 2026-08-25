@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Plus, Pencil, Trash2 } from "lucide-react";
-import CustomInput from "../../../components/ui/custom-input";
-import { ProductDetail } from "../../../types/productDetail.types";
+import CustomInput from "../../../../ui/custom-input";
+import { ProductDetail } from "../../../../../types/productDetail.types";
 
 type ProductFeaturesProps = {
-    value: ProductDetail[];               // لیست ویژگی‌ها از والد
-    onChange: (details: ProductDetail[]) => void;  // ارسال تغییرات به والد
+    value: ProductDetail[];               
+    onChange: (details: ProductDetail[]) => void; 
 };
 
 const ProductFeatures: React.FC<ProductFeaturesProps> = ({ value, onChange }) => {
@@ -14,12 +14,10 @@ const ProductFeatures: React.FC<ProductFeaturesProps> = ({ value, onChange }) =>
     const [editingId, setEditingId] = useState<number | null>(null);
     const [details, setDetails] = useState<ProductDetail[]>(value || []);
 
-    // اگر مقدار از بیرون تغییر کرد (مثلاً از API لود شد)
     useEffect(() => {
         setDetails(value || []);
     }, [value]);
 
-    // هر بار لیست تغییر کرد، به والد اطلاع بده
     useEffect(() => {
         onChange(details);
     }, [details]);
