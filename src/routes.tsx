@@ -20,11 +20,11 @@ import Tickets from "./pages/UserPanel/tickets/tickets";
 import Ticket from "./pages/UserPanel/tickets/ticket/ticket";
 import UserAccount from "./pages/UserPanel/account/account";
 
-import AdminPanel from "./pages/AdminPanel/Index";
-import AdminDashboard from "./pages/AdminPanel/Index/admin-dashboard";
-import ProductManagement from "./pages/AdminPanel/product-management/product-management";
-import AddProduct from "./pages/AdminPanel/product-management/AddProduct";
-import EditProduct from "./pages/AdminPanel/product-management/EditProduct";
+import AdminPanel from "./pages/AdminPanel/layout";
+import AdminDashboard from "./pages/AdminPanel/dashboard/AdminDashboard";
+import Products from "./pages/AdminPanel/products/products";
+import AddProduct from "./pages/AdminPanel/products/addproduct/AddProduct";
+import EditProduct from "./pages/AdminPanel/products/editproduct/EditProduct";
 import UserManagement from "./pages/AdminPanel/user-management/user-management";
 import ArticleManagement from "./pages/AdminPanel/article-management/article-management";
 import AddArticle from "./pages/AdminPanel/article-management/AddArticle";
@@ -65,9 +65,9 @@ const routes = [
             {
                 path: "admin-product",
                 children: [
-                    { index: true, element: <ProductManagement /> },
-                    { path: "add", element: <AddProduct /> },
-                    { path: "edit", element: <EditProduct /> },
+                    { index: true, element: <Products /> },
+                    { path: "add-product", element: <AddProduct /> },
+                    { path: "edit-product", element: <EditProduct /> },
                 ]
             },
             { path: "admin-users", element: <UserManagement /> },
