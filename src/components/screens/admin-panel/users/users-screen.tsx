@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Users, FunnelPlus, Pencil, Trash2, RefreshCw, Ban } from 'lucide-react';
-import CustomInput from '../../../components/ui/custom-input';
-import CustomPagination from '../../../components/ui/custom-pagination';
+import CustomInput from '../../../ui/custom-input';
+import CustomPagination from '../../../ui/custom-pagination';
 
 interface User {
     id: string;
@@ -25,8 +25,8 @@ const users: User[] = [
 const RoleBadge: React.FC<{ role: User['role'] }> = ({ role }) => (
     <span
         className={`inline-flex items-center justify-center py-1.5 px-3 rounded-md text-xs font-VazirMedium whitespace-nowrap ${role === "مدیر"
-                ? "bg-orange-50 text-orange-600"
-                : "bg-[#F3F6FC] text-secondary-color-blue"
+            ? "bg-orange-50 text-orange-600"
+            : "bg-[#F3F6FC] text-secondary-color-blue"
             }`}
     >
         {role}
@@ -66,7 +66,7 @@ const RowActions: React.FC = () => (
     </div>
 );
 
-const UserManagement: React.FC = () => {
+const UsersScreen: React.FC = () => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [itemsPerPage, setItemsPerPage] = useState<number>(10);
     const [searchQuery, setSearchQuery] = useState<string>('');
@@ -200,5 +200,4 @@ const UserManagement: React.FC = () => {
     );
 };
 
-export default UserManagement;
-
+export default UsersScreen;
