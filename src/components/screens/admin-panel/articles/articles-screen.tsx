@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Eye, Edit, MoreVertical, Plus, FileText, FunnelPlus } from "lucide-react";
-import CustomInput from "../../../components/ui/custom-input";
-import CustomPagination from "../../../components/ui/custom-pagination";
+import CustomInput from "../../../ui/custom-input";
+import CustomPagination from "../../../ui/custom-pagination";
 import { useNavigate } from "react-router-dom";
 
 type ArticleStatus = "منتشر شده" | "پیش‌نویس";
@@ -26,7 +26,7 @@ const articles: Article[] = [
     { id: 6, title: "پنج ترند برتر دکوراسیون در سال ۲۰۲۴", category: "ترند و اخبار", author: "علی محمدی", date: "۱۴۰۳/۰۲/۲۰", status: "پیش‌نویس", statusColor: "bg-orange-100 text-orange-600", image: "/Images/product-20.jpg" },
 ];
 
-const ArticleManagement: React.FC = () => {
+const ArticlesScreen: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const navigate = useNavigate();
@@ -64,7 +64,7 @@ const ArticleManagement: React.FC = () => {
                     </button>
                 </div>
                 <button
-                    onClick={() => navigate("/p-admin/admin-articles/add")}
+                    onClick={() => navigate("/p-admin/admin-articles/add-article")}
                     className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-main text-white transition-colors hover:bg-main/90 cursor-pointer shrink-0 w-full sm:w-auto"
                 >
                     <Plus size={18} />
@@ -90,7 +90,7 @@ const ArticleManagement: React.FC = () => {
                         </div>
                         <div className="flex flex-col items-center gap-2 shrink-0">
                             <Eye size={16} className="cursor-pointer text-secondary-color-blue" />
-                            <Edit size={16} onClick={() => navigate("/p-admin/admin-articles/edit")} className="cursor-pointer text-secondary-color-blue" />
+                            <Edit size={16} onClick={() => navigate("/p-admin/admin-articles/edit-article")} className="cursor-pointer text-secondary-color-blue" />
                             <MoreVertical size={16} className="cursor-pointer text-main" />
                         </div>
                     </div>
@@ -130,7 +130,7 @@ const ArticleManagement: React.FC = () => {
                                 <td className="p-4">
                                     <div className="flex items-center justify-center gap-3">
                                         <Eye size={18} className="cursor-pointer text-secondary-color-blue hover:text-gray-600" />
-                                        <Edit size={18} onClick={() => navigate("/p-admin/admin-articles/edit")} className="cursor-pointer text-secondary-color-blue hover:text-gray-600" />
+                                        <Edit size={18} onClick={() => navigate("/p-admin/admin-articles/edit-article")} className="cursor-pointer text-secondary-color-blue hover:text-gray-600" />
                                         <MoreVertical size={18} className="cursor-pointer text-main hover:text-gray-600" />
                                     </div>
                                 </td>
@@ -154,6 +154,4 @@ const ArticleManagement: React.FC = () => {
     );
 };
 
-export default ArticleManagement;
-
-
+export default ArticlesScreen;
