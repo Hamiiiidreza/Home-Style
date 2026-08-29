@@ -10,8 +10,8 @@ import {
     CheckCircle2,
     LucideIcon,
 } from 'lucide-react';
-import CustomInput from '../../../components/ui/custom-input';
-import CustomPagination from '../../../components/ui/custom-pagination';
+import CustomInput from '../../../ui/custom-input';
+import CustomPagination from '../../../ui/custom-pagination';
 import { useNavigate } from "react-router-dom";
 
 type Status = 'باز' | 'در حال بررسی' | 'بسته شده';
@@ -61,7 +61,7 @@ const tickets: Ticket[] = [
     },
 ];
 
-const TicketManagement: React.FC = () => {
+const TicketsScreen: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const navigate = useNavigate();
@@ -329,7 +329,4 @@ const StatusBadge = ({ status }: { status: Status }) => {
     );
 };
 
-export default TicketManagement;
-
-
-
+export default TicketsScreen;

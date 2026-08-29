@@ -1,5 +1,5 @@
 import React from "react";
-import PageHierarchy from "../../../components/modules/Page-Hierarchy/page-hierarchy";
+import PageHierarchy from "../../../modules/Page-Hierarchy/page-hierarchy";
 import {
     ChevronLeft,
     CalendarDays,
@@ -120,8 +120,8 @@ function MessageBubble({ message }: { message: Message }) {
 
                 <div
                     className={`w-full rounded-md border p-4 shadow-sm sm:p-5 ${isUser
-                            ? "max-w-full sm:max-w-[650px] border-blue-100 bg-[#f4f8ff]"
-                            : "max-w-full sm:max-w-[560px] border-slate-200 bg-[#fafbfa]"
+                        ? "max-w-full sm:max-w-[650px] border-blue-100 bg-[#f4f8ff]"
+                        : "max-w-full sm:max-w-[560px] border-slate-200 bg-[#fafbfa]"
                         }`}
                 >
                     <div
@@ -157,7 +157,7 @@ function MessageBubble({ message }: { message: Message }) {
     );
 }
 
-export default function TicketDetail() {
+export default function TicketScreen() {
     return (
         <div
             dir="rtl"
@@ -288,4 +288,3 @@ export default function TicketDetail() {
         </div>
     );
 }
-

@@ -16,8 +16,8 @@ import UserPanel from "./pages/UserPanel/layout";
 import Dashboard from "./pages/UserPanel/dashboard/Dashboard";
 import Orders from "./pages/UserPanel/orders/Orders";
 import Favorites from "./pages/UserPanel/favorites/favorites";
-import Tickets from "./pages/UserPanel/tickets/tickets";
-import Ticket from "./pages/UserPanel/tickets/ticket/ticket";
+import UserTickets from "./pages/UserPanel/tickets/tickets";
+import UserTicket from "./pages/UserPanel/tickets/ticket/ticket";
 import UserAccount from "./pages/UserPanel/account/account";
 
 import AdminPanel from "./pages/AdminPanel/layout";
@@ -29,8 +29,8 @@ import UserManagement from "./pages/AdminPanel/users/Users";
 import Articles from "./pages/AdminPanel/articles/Articles";
 import AddArticle from "./pages/AdminPanel/articles/addarticle/AddArticle";
 import EditArticle from "./pages/AdminPanel/articles/editarticle/EditArticle";
-import TicketManagement from "./pages/AdminPanel/ticket-management/ticket-management";
-import TicketDetail from "./pages/AdminPanel/ticket-management/ticket-detail";
+import AdminTickets from "./pages/AdminPanel/tickets/tickets";
+import AdminTicket from "./pages/AdminPanel/tickets/ticket/ticket";
 
 const routes = [
     { path: '/', element: <Home /> },
@@ -51,8 +51,8 @@ const routes = [
             { path: "dashboard", element: <Dashboard /> },
             { path: "orders", element: <Orders /> },
             { path: 'favorites', element: <Favorites /> },
-            { path: "tickets", element: <Tickets /> },
-            { path: 'tickets/:id', element: <Ticket /> },
+            { path: "tickets", element: <UserTickets /> },
+            { path: 'tickets/:id', element: <UserTicket /> },
             { path: "account", element: <UserAccount /> },
         ]
     },
@@ -82,8 +82,8 @@ const routes = [
             {
                 path: "admin-tickets",
                 children: [
-                    { index: true, element: <TicketManagement /> },
-                    { path: "ticket-detail", element: <TicketDetail /> },
+                    { index: true, element: <AdminTickets /> },
+                    { path: "ticket-detail", element: <AdminTicket /> },
                 ]
             },
         ]
