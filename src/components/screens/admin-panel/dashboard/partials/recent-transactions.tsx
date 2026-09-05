@@ -1,183 +1,202 @@
 import { ChevronLeft } from 'lucide-react';
+import { Skeleton } from '../../../../ui/skeleton';
+import { AdminDashboardOrder } from '../../../../../types/admin-dashboard.types';
 import { localAssetsUrl } from '../../../../../utils/constants';
+import { toJalaliDate } from '../../../../../utils/helpers';
 
-type TransactionStatus = 'تکمیل شده' | 'در حال پردازش' | 'در انتظار پرداخت';
-
-type Transaction = {
-    id: string;
-    customer: string;
-    product: string;
-    price: string;
-    status: TransactionStatus;
-    date: string;
-    img: string;
+type RecentTransactionsProps = {
+    data: AdminDashboardOrder[];
+    isPending: boolean;
 };
 
-const statusStyles: Record<TransactionStatus, string> = {
-    'تکمیل شده': 'bg-emerald-50 text-emerald-600',
-    'در حال پردازش': 'bg-blue-50 text-blue-600',
-    'در انتظار پرداخت': 'bg-rose-50 text-rose-600',
+const getStatusMeta = (status: string) => {
+    switch (status.toLowerCase()) {
+        case 'successfull':
+        case 'successful':
+            return {
+                text: 'تکمیل شده',
+                className: 'bg-emerald-50 text-emerald-600',
+            };
+        case 'pending':
+        case 'processing':
+            return {
+                text: 'در حال پردازش',
+                className: 'bg-blue-50 text-blue-600',
+            };
+        case 'unsucessfull':
+        case 'unsuccessful':
+        case 'failed':
+            return {
+                text: 'ناموفق',
+                className: 'bg-rose-50 text-rose-600',
+            };
+        default:
+            return {
+                text: status || 'نامشخص',
+                className: 'bg-gray-100 text-gray-600',
+            };
+    }
 };
 
-// نام فایل‌های عکس به صورت استاندارد و تمیز
-const transactions: Transaction[] = [
-    {
-        id: '۱۲۵۴۸۷',
-        customer: 'علی محمدی',
-        product: 'مبل ال مدرن وینتر',
-        price: '۶۵,۰۰۰,۰۰۰',
-        status: 'تکمیل شده',
-        date: '۲۲ اردیبهشت ۱۴۰۳',
-        img: 'product-14.png',
-    },
-    {
-        id: '۱۲۵۴۸۶',
-        customer: 'سارا احمدی',
-        product: 'میز ناهارخوری لوکس',
-        price: '۶۲,۰۰۰,۰۰۰',
-        status: 'در حال پردازش',
-        date: '۲۲ اردیبهشت ۱۴۰۳',
-        img: 'product-20.jpg',
-    },
-    {
-        id: '۱۲۵۴۸۵',
-        customer: 'محمد رضایی',
-        product: 'مبل راحتی چستر',
-        price: '۹۸,۰۰۰,۰۰۰',
-        status: 'تکمیل شده',
-        date: '۲۱ اردیبهشت ۱۴۰۳',
-        img: 'product-15.png',
-    },
-    {
-        id: '۱۲۵۴۸۴',
-        customer: 'زهرا حسینی',
-        product: 'آینه قدی مدرن',
-        price: '۲۴,۵۰۰,۰۰۰',
-        status: 'در انتظار پرداخت',
-        date: '۲۱ اردیبهشت ۱۴۰۳',
-        img: 'product-14.png',
-    },
-];
+const getImageUrl = (image?: string) => {
+    if (!image) {
+        return '/Images/img-placeholder-1.png';
+    }
 
-const RecentTransactions = () => {
+    if (image.startsWith('http')) {
+        return image;
+    }
+
+    return image.startsWith('/') ? `${localAssetsUrl}${image}` : `${localAssetsUrl}/${image}`;
+};
+
+const getCustomerName = (order: AdminDashboardOrder) => {
+    return (
+        order.user?.name ||
+        `${order.information?.firstName || ''} ${order.information?.lastName || ''}`.trim() ||
+        'کاربر'
+    );
+};
+
+const getProductName = (order: AdminDashboardOrder) => {
+    return order.products[0]?.product?.name || 'بدون محصول';
+};
+
+const RecentTransactions = ({ data, isPending }: RecentTransactionsProps) => {
     return (
         <div className="overflow-hidden rounded-md border bg-white shadow-sm transition-all hover:drop-shadow-custom">
-            {/* Header */}
             <div className="flex items-center justify-between border-b border-gray-50 p-4 sm:p-6">
-                <h3 className="font-VazirBold text-neutral-07 text-sm sm:text-base">آخرین تراکنش‌ها</h3>
+                <h3 className="text-sm font-VazirBold text-neutral-07 sm:text-base">آخرین تراکنش‌ها</h3>
                 <button
                     type="button"
-                    className="text-secondary-color-blue font-VazirMedium flex shrink-0 cursor-pointer items-center gap-1.5 text-xs transition-opacity hover:opacity-80"
+                    disabled
+                    className="flex shrink-0 cursor-not-allowed items-center gap-1.5 text-xs font-VazirMedium text-secondary-color-blue opacity-60"
                 >
                     مشاهده همه
                     <ChevronLeft size={14} />
                 </button>
             </div>
 
-            {/* Mobile View (Cards) */}
-            <div className="flex flex-col divide-y divide-gray-100 sm:hidden">
-                {transactions.map((item, idx) => {
-                    const imageSrc =
-                        item.img.startsWith('http') || item.img.startsWith('/')
-                            ? item.img
-                            : `${localAssetsUrl}${item.img}`;
-
-                    return (
-                        <div key={idx} className="flex flex-col gap-3 p-4">
-                            <div className="flex items-center gap-3">
-                                <img
-                                    src={imageSrc}
-                                    className="size-10 shrink-0 rounded-md object-cover"
-                                    alt={item.product}
-                                    loading="lazy"
-                                />
-                                <div className="min-w-0">
-                                    <p className="text-neutral-04 font-VazirMedium truncate text-xs">{item.product}</p>
-                                    <p className="font-VazirMedium text-[11px] text-gray-400">#{item.id}</p>
-                                </div>
-                            </div>
-
-                            <p className="font-VazirBold text-neutral-07 text-sm">{item.customer}</p>
-
-                            <p className="font-VazirBold text-neutral-07 text-sm">
-                                {item.price} <span className="font-VazirRegular text-neutral-04 text-[10px]">تومان</span>
-                            </p>
-
-                            <div className="flex items-center justify-between">
-                                <span className="font-VazirMedium text-[11px] text-gray-400">{item.date}</span>
-                                <span
-                                    className={`rounded-full px-2.5 py-1 text-[10px] font-VazirBold ${statusStyles[item.status]}`}
-                                >
-                                    {item.status}
-                                </span>
-                            </div>
+            {isPending ? (
+                <div className="flex flex-col divide-y divide-gray-100 sm:hidden">
+                    {Array.from({ length: 4 }).map((_, index) => (
+                        <div key={index} className="flex flex-col gap-3 p-4">
+                            <Skeleton className="h-10 w-full" />
+                            <Skeleton className="h-4 w-1/2" />
+                            <Skeleton className="h-4 w-1/3" />
                         </div>
-                    );
-                })}
-            </div>
-
-            {/* Desktop / Tablet View (Table) */}
-            <div className="hidden overflow-x-auto sm:block">
-                <table className="w-full min-w-[600px] text-center">
-                    <thead>
-                        <tr className="border-b border-gray-100 bg-gray-50 text-neutral-07 font-VazirMedium text-xs">
-                            <th className="whitespace-nowrap px-3 py-3">شماره سفارش</th>
-                            <th className="whitespace-nowrap px-3 py-3">مشتری</th>
-                            <th className="whitespace-nowrap px-3 py-3">محصول</th>
-                            <th className="whitespace-nowrap px-3 py-3">مبلغ</th>
-                            <th className="whitespace-nowrap px-3 py-3">وضعیت</th>
-                            <th className="whitespace-nowrap px-3 py-3">تاریخ</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {transactions.map((item, idx) => {
-                            const imageSrc =
-                                item.img.startsWith('http') || item.img.startsWith('/')
-                                    ? item.img
-                                    : `${localAssetsUrl}${item.img}`;
+                    ))}
+                </div>
+            ) : data.length === 0 ? (
+                <div className="px-4 py-16 text-center text-sm font-VazirMedium text-neutral-04">
+                    تراکنشی برای نمایش وجود ندارد
+                </div>
+            ) : (
+                <>
+                    <div className="flex flex-col divide-y divide-gray-100 sm:hidden">
+                        {data.map((item) => {
+                            const product = item.products[0]?.product;
+                            const status = getStatusMeta(item.status);
 
                             return (
-                                <tr key={idx} className="border-b border-gray-50 transition-colors hover:bg-gray-50">
-                                    <td className="font-VazirMedium whitespace-nowrap px-3 py-3 text-xs">{item.id}</td>
-                                    <td className="font-VazirBold text-neutral-07 whitespace-nowrap px-3 py-3 text-sm">
-                                        {item.customer}
-                                    </td>
-                                    <td className="px-3 py-3">
-                                        <div className="flex items-center justify-center gap-2">
-                                            <img
-                                                src={imageSrc}
-                                                className="size-9 shrink-0 rounded-md object-cover"
-                                                alt={item.product}
-                                                loading="lazy"
-                                            />
-                                            <span className="text-neutral-04 font-VazirMedium line-clamp-1 max-w-[140px] text-right text-xs">
-                                                {item.product}
-                                            </span>
+                                <div key={item._id} className="flex flex-col gap-3 p-4">
+                                    <div className="flex items-center gap-3">
+                                        <img
+                                            src={getImageUrl(product?.images?.[0])}
+                                            className="size-10 shrink-0 rounded-md object-cover"
+                                            alt={getProductName(item)}
+                                            loading="lazy"
+                                        />
+                                        <div className="min-w-0">
+                                            <p className="truncate text-xs font-VazirMedium text-neutral-04">
+                                                {getProductName(item)}
+                                            </p>
+                                            <p className="text-[11px] font-VazirMedium text-gray-400">
+                                                #{item.trackingCode || item._id}
+                                            </p>
                                         </div>
-                                    </td>
-                                    <td className="font-VazirBold text-neutral-07 whitespace-nowrap px-3 py-3 text-sm">
-                                        {item.price}{' '}
-                                        <span className="font-VazirRegular text-neutral-04 text-[10px]">تومان</span>
-                                    </td>
-                                    <td className="px-3 py-3">
-                                        <span
-                                            className={`whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-VazirBold ${statusStyles[item.status]}`}
-                                        >
-                                            {item.status}
+                                    </div>
+
+                                    <p className="text-sm font-VazirBold text-neutral-07">{getCustomerName(item)}</p>
+
+                                    <p className="text-sm font-VazirBold text-neutral-07">
+                                        {item.totalPrice.toLocaleString('fa-IR')}{' '}
+                                        <span className="text-[10px] font-VazirRegular text-neutral-04">تومان</span>
+                                    </p>
+
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-[11px] font-VazirMedium text-gray-400">
+                                            {toJalaliDate(item.createdAt)}
                                         </span>
-                                    </td>
-                                    <td className="font-VazirMedium whitespace-nowrap px-3 py-3 text-[11px] text-gray-400">
-                                        {item.date}
-                                    </td>
-                                </tr>
+                                        <span className={`rounded-full px-2.5 py-1 text-[10px] font-VazirBold ${status.className}`}>
+                                            {status.text}
+                                        </span>
+                                    </div>
+                                </div>
                             );
                         })}
-                    </tbody>
-                </table>
-            </div>
+                    </div>
+
+                    <div className="hidden overflow-x-auto sm:block">
+                        <table className="w-full min-w-[600px] text-center">
+                            <thead>
+                                <tr className="border-b border-gray-100 bg-gray-50 text-xs font-VazirMedium text-neutral-07">
+                                    <th className="whitespace-nowrap px-3 py-3">شماره سفارش</th>
+                                    <th className="whitespace-nowrap px-3 py-3">مشتری</th>
+                                    <th className="whitespace-nowrap px-3 py-3">محصول</th>
+                                    <th className="whitespace-nowrap px-3 py-3">مبلغ</th>
+                                    <th className="whitespace-nowrap px-3 py-3">وضعیت</th>
+                                    <th className="whitespace-nowrap px-3 py-3">تاریخ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {data.map((item) => {
+                                    const product = item.products[0]?.product;
+                                    const status = getStatusMeta(item.status);
+
+                                    return (
+                                        <tr key={item._id} className="border-b border-gray-50 transition-colors hover:bg-gray-50">
+                                            <td className="whitespace-nowrap px-3 py-3 text-xs font-VazirMedium">
+                                                {item.trackingCode || item._id}
+                                            </td>
+                                            <td className="whitespace-nowrap px-3 py-3 text-sm font-VazirBold text-neutral-07">
+                                                {getCustomerName(item)}
+                                            </td>
+                                            <td className="px-3 py-3">
+                                                <div className="flex items-center justify-center gap-2">
+                                                    <img
+                                                        src={getImageUrl(product?.images?.[0])}
+                                                        className="size-9 shrink-0 rounded-md object-cover"
+                                                        alt={getProductName(item)}
+                                                        loading="lazy"
+                                                    />
+                                                    <span className="line-clamp-1 max-w-[180px] text-right text-xs font-VazirMedium text-neutral-04">
+                                                        {getProductName(item)}
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td className="whitespace-nowrap px-3 py-3 text-sm font-VazirBold text-neutral-07">
+                                                {item.totalPrice.toLocaleString('fa-IR')}{' '}
+                                                <span className="text-[10px] font-VazirRegular text-neutral-04">تومان</span>
+                                            </td>
+                                            <td className="px-3 py-3">
+                                                <span className={`whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-VazirBold ${status.className}`}>
+                                                    {status.text}
+                                                </span>
+                                            </td>
+                                            <td className="whitespace-nowrap px-3 py-3 text-[11px] font-VazirMedium text-gray-400">
+                                                {toJalaliDate(item.createdAt)}
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                </>
+            )}
         </div>
     );
 };
 
 export default RecentTransactions;
-

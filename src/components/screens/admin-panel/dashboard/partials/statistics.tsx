@@ -1,43 +1,58 @@
-import { Truck, User, Handbag, TrendingUp, MoveUpRight, LucideIcon } from 'lucide-react';
+import { Handbag, LucideIcon, TrendingUp, Truck, User } from 'lucide-react';
+
+import { Skeleton } from '../../../../ui/skeleton';
+import { AdminDashboardOverview } from '../../../../../types/admin-dashboard.types';
 
 type StatItem = {
+    key: keyof AdminDashboardOverview;
     title: string;
-    count: number;
     icon: LucideIcon;
-    desc: string;
+    isCurrency?: boolean;
 };
 
 const items: StatItem[] = [
-    { title: 'محصولات فعال', count: 246, icon: Truck, desc: '5% نسبت به ماه قبل' },
-    { title: 'مشتریان جدید', count: 92, icon: User, desc: '15% نسبت به ماه قبل' },
-    { title: 'سفارشات جدید', count: 158, icon: Handbag, desc: '8% نسبت به ماه قبل' },
-    { title: 'مجموع فروش', count: 2485000000, icon: TrendingUp, desc: '12% نسبت به ماه قبل' },
+    { key: 'activeProducts', title: 'محصولات فعال', icon: Truck },
+    { key: 'newCustomers', title: 'مشتریان جدید', icon: User },
+    { key: 'newOrders', title: 'سفارش‌های جدید', icon: Handbag },
+    { key: 'totalSales', title: 'مجموع فروش', icon: TrendingUp, isCurrency: true },
 ];
 
-const Statistics = () => {
+type StatisticsProps = {
+    data: AdminDashboardOverview | undefined;
+    isPending: boolean;
+};
+
+const Statistics = ({ data, isPending }: StatisticsProps) => {
     return (
         <div className="mb-6 mt-3 grid grid-cols-2 gap-3 sm:mb-10 sm:mt-5 sm:gap-5 xl:grid-cols-4">
-            {items.map((box, i) => {
+            {items.map((box) => {
                 const Icon = box.icon;
+                const value = data?.[box.key];
+
                 return (
                     <div
-                        key={i}
+                        key={box.key}
                         className="flex items-start gap-3 rounded-md border bg-white p-3 shadow-sm transition-all hover:drop-shadow-custom sm:gap-4 sm:p-5"
                     >
                         <div className="bg-neutral-01 text-secondary-color-blue flex size-10 shrink-0 items-center justify-center rounded-full sm:size-12">
                             <Icon size={20} />
                         </div>
                         <div className="flex min-w-0 flex-col gap-1">
-                            <span className="text-neutral-07 font-VazirMedium truncate text-[10px] sm:text-xs">
+                            <span className="text-neutral-07 truncate text-[10px] font-VazirMedium sm:text-xs">
                                 {box.title}
                             </span>
-                            <span className="text-neutral-07 font-VazirBold text-sm sm:text-base">
-                                {box.count.toLocaleString('fa-ir')}
-                            </span>
-                            <span className="text-secondary-color-green font-VazirRegular mt-1 hidden items-center gap-1 text-[10px] sm:flex">
-                                <MoveUpRight size={10} />
-                                {box.desc}
-                            </span>
+                            {isPending ? (
+                                <Skeleton className="mt-1 h-5 w-20" />
+                            ) : (
+                                <span className="text-neutral-07 text-sm font-VazirBold sm:text-base">
+                                    {(value ?? 0).toLocaleString('fa-IR')}
+                                    {box.isCurrency && (
+                                        <span className="mr-1 text-[8px] font-VazirRegular text-neutral-04">
+                                            تومان
+                                        </span>
+                                    )}
+                                </span>
+                            )}
                         </div>
                     </div>
                 );
