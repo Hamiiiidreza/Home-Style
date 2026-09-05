@@ -1,7 +1,8 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../../components/screens/admin-panel/Sidebar";
-import MobileSidebar from "../../components/screens/user-panel/mobile-sidebar";
+import AdminMobileSidebar from "../../components/screens/admin-panel/mobile-sidebar";
 import { Bell, Handbag, ChevronLeft, ChevronDown, Menu } from "lucide-react";
 
 import {
@@ -11,6 +12,13 @@ import {
 } from "../../components/ui/sheet";
 
 const AdminPanelLayout: React.FC = () => {
+    const [open, setOpen] = useState(false);
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        setOpen(false);
+    }, [pathname]);
+
     return (
         <div className="flex bg-neutral-03 min-h-screen">
             {/* desktop aside */}
@@ -38,19 +46,19 @@ const AdminPanelLayout: React.FC = () => {
             </aside>
 
             {/* mobile aside */}
-            <Sheet>
+            <Sheet open={open} onOpenChange={setOpen}>
                 <SheetContent
                     side="right"
-                    className="w-[280px] p-0 bg-transparent shadow-none border-none"
+                    className="z-[9999] w-[280px] border-none bg-transparent p-0 shadow-none"
                 >
-                    <MobileSidebar />
+                    <AdminMobileSidebar />
                 </SheetContent>
 
                 <section className="w-full p-2">
                     <div className="p-4 sm:p-6 bg-white border border-neutral-02 shadow-sm rounded-md">
                         <header className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-4">
                             <div className="flex items-center gap-3">
-                                <SheetTrigger asChild>
+                                <SheetTrigger>
                                     <button className="lg:hidden">
                                         <Menu />
                                     </button>

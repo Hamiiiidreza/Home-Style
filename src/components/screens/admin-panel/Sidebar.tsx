@@ -9,6 +9,9 @@ import {
     LogOut,
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
+import Cookies from "js-cookie";
+import { useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 type SidebarItem = {
     id: string;
@@ -55,14 +58,20 @@ const items: SidebarItem[] = [
         label: "خروج از حساب",
         type: "action",
         icon: LogOut,
-        onClick: () => {
-            console.log("logout");
-        },
     },
 ];
 
 const Sidebar: React.FC = () => {
     const { pathname } = useLocation();
+    const navigate = useNavigate();
+    const queryClient = useQueryClient();
+
+    const handleLogout = () => {
+        Cookies.remove('token');
+        queryClient.setQueryData(['me'], null);
+        queryClient.clear();
+        navigate('/');
+    };
 
     const baseClass =
         "flex items-center gap-4 px-4 py-3 rounded-xl cursor-pointer transition-all";
@@ -113,7 +122,7 @@ const Sidebar: React.FC = () => {
                     <button
                         key={item.id}
                         type="button"
-                        onClick={item.onClick}
+                        onClick={handleLogout}
                         className={`${baseClass} ${inactiveClass} w-full text-right`}
                     >
                         <Icon size={18} className="text-neutral-04" />
