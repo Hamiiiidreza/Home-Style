@@ -26,7 +26,7 @@ const DashboardScreen = () => {
     }
 
     return (
-        <div className="min-h-screen bg-white p-3 font-VazirRegular sm:p-6" dir="rtl">
+        <div className="min-h-screen w-full my-4 md:my-10 bg-white font-VazirRegular" dir="rtl">
             <Statistics data={data?.overview} isPending={isPending} />
             <ChartsSection
                 growthData={data?.growthChart ?? []}
