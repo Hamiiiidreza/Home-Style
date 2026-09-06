@@ -1,9 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import Sidebar from "../../components/screens/admin-panel/Sidebar";
 import AdminMobileSidebar from "../../components/screens/admin-panel/mobile-sidebar";
-import { Bell, Handbag, ChevronLeft, ChevronDown, Menu } from "lucide-react";
+import { ChevronLeft, LogOut, Menu } from "lucide-react";
+import { useQueryClient } from "@tanstack/react-query";
+import Cookies from "js-cookie";
 
 import {
     Sheet,
@@ -14,6 +16,14 @@ import {
 const AdminPanelLayout: React.FC = () => {
     const [open, setOpen] = useState(false);
     const { pathname } = useLocation();
+    const navigate = useNavigate();
+    const queryClient = useQueryClient();
+
+    const handleLogout = () => {
+        Cookies.remove("token");
+        queryClient.setQueryData(["me"], null);
+        navigate("/");
+    };
 
     useEffect(() => {
         setOpen(false);
@@ -37,10 +47,10 @@ const AdminPanelLayout: React.FC = () => {
                         <p className="text-xs text-neutral-04 font-VazirRegular mb-3">
                             با تحلیل داده ها، تصمیم های بهتری بگیرید
                         </p>
-                        <button className="flex gap-2 text-xs text-white font-VazirRegular bg-main hover:bg-main/90 transition rounded-lg px-3 py-2 cursor-pointer">
+                        <Link to={'/p-admin/dashboard'} className="inline-flex gap-2 text-xs text-white font-VazirRegular bg-main hover:bg-main/90 transition rounded-lg px-3 py-2 cursor-pointer">
                             مشاهده گزارش ها
                             <ChevronLeft size={14} />
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </aside>
@@ -59,12 +69,24 @@ const AdminPanelLayout: React.FC = () => {
                         <header className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-4">
                             <div className="flex items-center gap-3">
                                 <SheetTrigger>
-                                    <button className="lg:hidden">
+                                    <button
+                                        type="button"
+                                        aria-label="باز کردن منوی مدیریت"
+                                        className="lg:hidden"
+                                    >
                                         <Menu />
                                     </button>
                                 </SheetTrigger>
 
-                                <div>
+                                <Link to="/" className="flex justify-center lg:hidden">
+                                    <img
+                                        src="/Images/logo.jpg"
+                                        alt="لوگوی سایت"
+                                        className="h-8 w-30 object-contain"
+                                    />
+                                </Link>
+
+                                <div className="hidden lg:block">
                                     <h2 className="text-base md:text-xl font-VazirBold text-neutral-07">
                                        سلام مدیریت محترم
                                     </h2>
@@ -75,29 +97,14 @@ const AdminPanelLayout: React.FC = () => {
                             </div>
 
                             <div className="flex items-center gap-4">
-                                <button className="relative">
-                                    <Bell
-                                        size={18}
-                                        className="cursor-pointer text-neutral-07 transition-all hover:text-main"
-                                    />
-                                    <span className="absolute -top-2 -right-2 bg-main text-white text-[10px] rounded-full size-4 flex items-center justify-center">
-                                        2
-                                    </span>
+                                <button
+                                    type="button"
+                                    aria-label="خروج از حساب"
+                                    onClick={handleLogout}
+                                    className="text-neutral-07 transition-colors hover:text-main cursor-pointer"
+                                >
+                                    <LogOut size={20} />
                                 </button>
-
-                                <div className="hidden sm:block w-[1px] h-6 bg-neutral-03 mx-1"></div>
-
-                                <div className="flex items-center gap-2 sm:gap-3">
-                                    <span className="hidden md:flex items-center gap-1 text-sm lg:text-lg font-VazirMedium text-neutral-07">
-                                        سینا یوسفی
-                                        <ChevronDown size={14} />
-                                    </span>
-
-                                    <img
-                                        src="/Images/avatar_2.svg"
-                                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border border-neutral-02"
-                                    />
-                                </div>
                             </div>
                         </header>
 

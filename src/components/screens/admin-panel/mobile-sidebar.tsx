@@ -20,13 +20,14 @@ const AdminMobileSidebar = () => {
                     <p className="mb-3 text-xs font-VazirRegular text-neutral-04">
                         با تحلیل داده‌ها، تصمیم‌های بهتری برای فروشگاه بگیرید
                     </p>
-                    <button
+                    <Link
+                        to={'/p-admin/dashboard'}
                         type="button"
-                        className="flex cursor-pointer gap-2 rounded-lg bg-main px-3 py-2 text-xs font-VazirRegular text-white transition hover:bg-main/90"
+                        className="inline-flex cursor-pointer gap-2 rounded-lg bg-main px-3 py-2 text-xs font-VazirRegular text-white transition hover:bg-main/90"
                     >
                         مشاهده گزارش‌ها
                         <ChevronLeft size={14} />
-                    </button>
+                    </Link>
                 </div>
             </div>
         </aside>
