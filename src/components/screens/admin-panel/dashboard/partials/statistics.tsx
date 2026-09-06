@@ -24,7 +24,7 @@ type StatisticsProps = {
 
 const Statistics = ({ data, isPending }: StatisticsProps) => {
     return (
-        <div className="mb-6 mt-3 grid grid-cols-2 gap-3 sm:mb-10 sm:mt-5 sm:gap-5 xl:grid-cols-4">
+        <div className="mb-6 mt-3 grid w-full grid-cols-1 sm:grid-cols-2 gap-3 sm:mb-10 sm:mt-5 sm:gap-5 xl:grid-cols-4">
             {items.map((box) => {
                 const Icon = box.icon;
                 const value = data?.[box.key];
@@ -47,7 +47,7 @@ const Statistics = ({ data, isPending }: StatisticsProps) => {
                                 <span className="text-neutral-07 text-sm font-VazirBold sm:text-base">
                                     {(value ?? 0).toLocaleString('fa-IR')}
                                     {box.isCurrency && (
-                                        <span className="mr-1 text-[8px] font-VazirRegular text-neutral-04">
+                                        <span className="mr-1 text-[12px] font-VazirRegular text-neutral-04">
                                             تومان
                                         </span>
                                     )}
